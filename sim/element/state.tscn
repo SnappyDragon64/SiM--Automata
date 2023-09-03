@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://bu4y7xk5q0k1m"]
+
+[ext_resource type="Texture2D" uid="uid://2lj4571lplpl" path="res://asset/element/input.svg" id="1_qhvr5"]
+[ext_resource type="Texture2D" uid="uid://lctqlxx8g5os" path="res://asset/element/output.svg" id="2_2taxx"]
+
+[node name="state" type="GraphNode"]
+offset_right = 36.0
+offset_bottom = 54.0
+title = "S0"
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color(1, 1, 1, 1)
+slot/0/left_icon = ExtResource("1_qhvr5")
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color(1, 1, 1, 1)
+slot/0/right_icon = ExtResource("2_2taxx")
+slot/0/draw_stylebox = true
+
+[node name="slot" type="Control" parent="."]
+layout_mode = 2

@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cwbxfyaebt2fb"]
+
+[node name="tab_container" type="TabContainer"]
+size_flags_vertical = 3
+
+[node name="States" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_type_variation = &"BorderPanel"
+
+[node name="StatesPanel" type="PanelContainer" parent="States"]
+layout_mode = 2
+theme_type_variation = &"BorderPanel"
+
+[node name="Transitions" type="MarginContainer" parent="."]
+visible = false
+layout_mode = 2
+
+[node name="TransitionsPanel" type="PanelContainer" parent="Transitions"]
+layout_mode = 2
+theme_type_variation = &"BorderPanel"

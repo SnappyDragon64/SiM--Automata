@@ -1,0 +1,38 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="SiM: Automata"
+run/main_scene="res://sim/simulator.tscn"
+config/features=PackedStringArray("4.1", "GL Compatibility")
+boot_splash/bg_color=Color(0.168627, 0.168627, 0.168627, 1)
+
+[autoload]
+
+Signals="*res://sim/core/signals.gd"
+Globals="*res://sim/core/globals.gd"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/stretch/aspect="ignore"
+window/canvas_textures/default_texture_filter=2
+
+[gui]
+
+theme/custom="res://asset/theme/default.tres"
+theme/custom_font="res://asset/font/Roboto-Regular.ttf"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=2
+renderer/rendering_method.mobile="gl_compatibility"

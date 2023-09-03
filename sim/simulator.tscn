@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://d08cyadt45d0r"]
+
+[ext_resource type="Script" path="res://sim/simulator.gd" id="1_a1xt7"]
+[ext_resource type="PackedScene" uid="uid://bi0mit71msbia" path="res://sim/ui/interface.tscn" id="2_gur35"]
+
+[node name="simulator" type="Node2D"]
+script = ExtResource("1_a1xt7")
+
+[node name="interface_layer" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="interface" parent="interface_layer" instance=ExtResource("2_gur35")]

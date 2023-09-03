@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=3 uid="uid://cinqovg23332w"]
+
+[ext_resource type="Theme" uid="uid://c6ia6036wx7td" path="res://asset/theme/default.tres" id="1_d321i"]
+[ext_resource type="Texture2D" uid="uid://bunw3qg3dldhy" path="res://asset/element/tool/select.svg" id="2_llgij"]
+[ext_resource type="Script" path="res://sim/ui/components/button.gd" id="3_32nty"]
+[ext_resource type="Texture2D" uid="uid://dmlxy4if3btyw" path="res://asset/element/tool/pan.svg" id="3_ysfiq"]
+[ext_resource type="Texture2D" uid="uid://ft6cn1ic57da" path="res://asset/element/tool/create.svg" id="4_3fw7w"]
+[ext_resource type="Texture2D" uid="uid://bo6v2qnv4d1yn" path="res://asset/element/tool/link.svg" id="5_xnuya"]
+[ext_resource type="Texture2D" uid="uid://0a75h8i62sj" path="res://asset/element/tool/delete.svg" id="6_mjbfx"]
+
+[node name="tool_bar" type="PanelContainer"]
+custom_minimum_size = Vector2(0, 32)
+size_flags_horizontal = 3
+theme = ExtResource("1_d321i")
+
+[node name="tool_container" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme = ExtResource("1_d321i")
+
+[node name="select_button" type="Button" parent="tool_container"]
+layout_mode = 2
+theme = ExtResource("1_d321i")
+toggle_mode = true
+icon = ExtResource("2_llgij")
+script = ExtResource("3_32nty")
+
+[node name="pan_button" type="Button" parent="tool_container"]
+layout_mode = 2
+theme = ExtResource("1_d321i")
+toggle_mode = true
+icon = ExtResource("3_ysfiq")
+script = ExtResource("3_32nty")
+
+[node name="create_button" type="Button" parent="tool_container"]
+layout_mode = 2
+theme = ExtResource("1_d321i")
+toggle_mode = true
+icon = ExtResource("4_3fw7w")
+script = ExtResource("3_32nty")
+
+[node name="link_button" type="Button" parent="tool_container"]
+layout_mode = 2
+theme = ExtResource("1_d321i")
+toggle_mode = true
+icon = ExtResource("5_xnuya")
+script = ExtResource("3_32nty")
+
+[node name="delete_button" type="Button" parent="tool_container"]
+layout_mode = 2
+theme = ExtResource("1_d321i")
+toggle_mode = true
+icon = ExtResource("6_mjbfx")
+script = ExtResource("3_32nty")

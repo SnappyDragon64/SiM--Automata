@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://bcwvdslook4ii"]
+
+[ext_resource type="Script" path="res://sim/ui/components/window.gd" id="1_p7iie"]
+
+[node name="window" type="GraphEdit"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+connection_lines_curvature = 1.0
+zoom_min = 0.5
+zoom_max = 2.0
+show_zoom_label = true
+minimap_enabled = false
+minimap_size = Vector2(50, 50)
+minimap_opacity = 0.0
+script = ExtResource("1_p7iie")
+
+[connection signal="connection_request" from="." to="." method="_on_connection_request"]
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="resized" from="." to="." method="_on_resized"]

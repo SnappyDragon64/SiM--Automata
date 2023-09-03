@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=3 uid="uid://bi0mit71msbia"]
+
+[ext_resource type="PackedScene" uid="uid://dnb77nd8fc5bl" path="res://sim/ui/components/menu_bar.tscn" id="2_uemsp"]
+[ext_resource type="PackedScene" uid="uid://c5xrfwjl1ttak" path="res://sim/ui/components/side_panel.tscn" id="3_xjuc2"]
+[ext_resource type="PackedScene" uid="uid://djwgi07cghjp5" path="res://sim/ui/components/window_container.tscn" id="4_0j3i2"]
+
+[node name="interface" type="GridContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="menu_bar" parent="." instance=ExtResource("2_uemsp")]
+layout_mode = 2
+
+[node name="main_container" type="GridContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+columns = 3
+
+[node name="side_panel" parent="main_container" instance=ExtResource("3_xjuc2")]
+layout_mode = 2
+
+[node name="window_container" parent="main_container" instance=ExtResource("4_0j3i2")]
+layout_mode = 2
+
+[node name="right_bar" type="PanelContainer" parent="main_container"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+size_flags_vertical = 3

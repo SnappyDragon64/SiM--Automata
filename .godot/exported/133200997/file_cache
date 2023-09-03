@@ -1,0 +1,12 @@
+res://asset/theme/default.tres::36ea92923ab5390da28dd2c0d1609993::1693582773::res://.godot/exported/133200997/export-bc15c2bed68203b12ada429e16bf5c42-default.res
+res://sim/element/state.tscn::895a4011132038ffbf5c4a0b167a38b5::1693583566::res://.godot/exported/133200997/export-45f4071a2a4521b03adbd55f40370a4f-state.scn
+res://sim/ui/components/misc/cursor_button_group.tres::7021b6e19cffad3eb97b278d9010bb81::1693392895::res://.godot/exported/133200997/export-4807c05a0b1e2e283e13767f76df8100-cursor_button_group.res
+res://sim/ui/components/input_container.tscn::c4b74b6e43a1b6ffa5817c79aa73aa44::1693578462::res://.godot/exported/133200997/export-09746a30f8ac41f9c1fb8f6da3bedc27-input_container.scn
+res://sim/ui/components/menu_bar.tscn::0bd39d53d179874189ba6f7d610e7589::1693415406::res://.godot/exported/133200997/export-1e3cc3ba2f629b6d34e340f89955d2c5-menu_bar.scn
+res://sim/ui/components/window.tscn::f0ce44692a553fbb28a6ed56a75fdd34::1693583566::res://.godot/exported/133200997/export-ae1dbae00bfc8d30145b8d69cef2e601-window.scn
+res://sim/ui/components/side_panel.tscn::55632d220ba4f23cc3dfe97f81e4e175::1693580153::res://.godot/exported/133200997/export-679fc944cbd602f770d5d4978cf2875d-side_panel.scn
+res://sim/ui/components/tab_container.tscn::58de75d2d154f4e8a78fd85134fe739b::1693580153::res://.godot/exported/133200997/export-36ca69ec406675f6b0b571c12ef71eb7-tab_container.scn
+res://sim/ui/components/tool_bar.tscn::ffb62ee317a3a351fe3700e50b10715b::1693580153::res://.godot/exported/133200997/export-8163237822d5300a0b99b2059130114a-tool_bar.scn
+res://sim/ui/components/window_container.tscn::58b4d153c9c65881bdf8942522a1228e::1693580153::res://.godot/exported/133200997/export-170207d685c971900d375eff97aa2bdf-window_container.scn
+res://sim/ui/interface.tscn::b2ec3a1bab7fea5d6140c9dbf926855b::1693580153::res://.godot/exported/133200997/export-5415a2931ca7738042b1853ccf57821e-interface.scn
+res://sim/simulator.tscn::cd3764c8cdf7bdab549440ce649de054::1693580153::res://.godot/exported/133200997/export-4f2d4b549dae77a122672507b89fd44a-simulator.scn

@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cu14f048pbeb"]
+
+[node name="input_container" type="TabContainer"]
+size_flags_vertical = 3
+
+[node name="Input" type="MarginContainer" parent="."]
+layout_mode = 2
+
+[node name="InputPanel" type="PanelContainer" parent="Input"]
+layout_mode = 2
+theme_type_variation = &"BorderPanel"

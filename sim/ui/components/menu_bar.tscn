@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://dnb77nd8fc5bl"]
+
+[node name="menu_bar" type="PanelContainer"]
+custom_minimum_size = Vector2(0, 32)
+size_flags_horizontal = 3
+
+[node name="menu_container" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="logo" type="TextureRect" parent="menu_container"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="file_button" type="MenuButton" parent="menu_container"]
+layout_mode = 2
+text = "File"
+
+[node name="edit_button" type="MenuButton" parent="menu_container"]
+layout_mode = 2
+text = "Edit"
+
+[node name="view_button" type="MenuButton" parent="menu_container"]
+layout_mode = 2
+text = "View"
