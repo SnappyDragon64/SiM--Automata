@@ -1,2 +1,2 @@
-# SiMAutomata
+# SiM: Automata
   Automata Simulator
