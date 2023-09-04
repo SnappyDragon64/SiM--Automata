@@ -6,3 +6,5 @@ signal grid(flag)
 
 # STATE
 signal state_deleted(id)
+signal lock_dragging(flag)
+signal lock_slots(flag)
