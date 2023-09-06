@@ -24,3 +24,6 @@ func _on_delete_button_pressed():
 
 func _on_grid_button_toggled(button_pressed):
 	Signals.grid.emit(button_pressed)
+
+func _on_dark_mode_button_toggled(button_pressed):
+	Signals.dark_mode.emit(button_pressed)

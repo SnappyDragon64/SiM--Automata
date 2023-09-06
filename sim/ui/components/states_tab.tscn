@@ -1,9 +1,10 @@
 [gd_scene load_steps=2 format=3 uid="uid://bfcnwmxct148n"]
 
-[ext_resource type="PackedScene" uid="uid://bi5e3lecehwiu" path="res://sim/ui/components/state_label.tscn" id="1_swtlb"]
+[ext_resource type="Script" path="res://sim/ui/components/states_tab.gd" id="1_ajomh"]
 
 [node name="States" type="MarginContainer"]
 theme_type_variation = &"BorderPanel"
+script = ExtResource("1_ajomh")
 
 [node name="StatesPanel" type="PanelContainer" parent="."]
 layout_mode = 2
@@ -15,26 +16,12 @@ layout_mode = 2
 [node name="StatesScroll" type="ScrollContainer" parent="StatesPanel/StatesMargin"]
 layout_mode = 2
 
-[node name="VStates" type="VBoxContainer" parent="StatesPanel/StatesMargin/StatesScroll"]
+[node name="ScrollMargin" type="MarginContainer" parent="StatesPanel/StatesMargin/StatesScroll"]
+layout_mode = 2
+theme_type_variation = &"TopDownMargin"
+
+[node name="VStates" type="VBoxContainer" parent="StatesPanel/StatesMargin/StatesScroll/ScrollMargin"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_type_variation = &"VGapless"
-
-[node name="state_label" parent="StatesPanel/StatesMargin/StatesScroll/VStates" instance=ExtResource("1_swtlb")]
-layout_mode = 2
-
-[node name="state_label3" parent="StatesPanel/StatesMargin/StatesScroll/VStates" instance=ExtResource("1_swtlb")]
-layout_mode = 2
-
-[node name="state_label4" parent="StatesPanel/StatesMargin/StatesScroll/VStates" instance=ExtResource("1_swtlb")]
-layout_mode = 2
-
-[node name="state_label5" parent="StatesPanel/StatesMargin/StatesScroll/VStates" instance=ExtResource("1_swtlb")]
-layout_mode = 2
-
-[node name="state_label6" parent="StatesPanel/StatesMargin/StatesScroll/VStates" instance=ExtResource("1_swtlb")]
-layout_mode = 2
-
-[node name="state_label2" parent="StatesPanel/StatesMargin/StatesScroll/VStates" instance=ExtResource("1_swtlb")]
-layout_mode = 2

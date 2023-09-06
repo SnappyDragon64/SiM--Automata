@@ -4,6 +4,7 @@ var id = 0
 
 func _ready():
 	update_title()
+	Signals.state_created.emit(id)
 	Signals.state_deleted.connect(_on_state_deleted)
 	Signals.lock_dragging.connect(_lock_dragging)
 	Signals.lock_slots.connect(_lock_slots)

@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://bi5e3lecehwiu"]
+
+[ext_resource type="Script" path="res://sim/ui/components/label/state_label.gd" id="1_35egk"]
+[ext_resource type="Texture2D" uid="uid://cerfqksci3vil" path="res://asset/element/tool/close.svg" id="1_aaftn"]
+
+[node name="state_label" type="PanelContainer"]
+offset_right = 63.0
+offset_bottom = 32.0
+size_flags_horizontal = 3
+theme_type_variation = &"LabelPanel"
+script = ExtResource("1_35egk")
+
+[node name="margin" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_type_variation = &"ExtraMargin"
+
+[node name="hbox" type="HBoxContainer" parent="margin"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_type_variation = &"HBoxLessSpacing"
+
+[node name="label" type="Label" parent="margin/hbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+vertical_alignment = 1
+
+[node name="delete_button" type="Button" parent="margin/hbox"]
+layout_mode = 2
+icon = ExtResource("1_aaftn")
+icon_alignment = 2
