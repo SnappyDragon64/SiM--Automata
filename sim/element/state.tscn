@@ -6,11 +6,11 @@
 offset_right = 62.0
 offset_bottom = 76.0
 draggable = false
-slot/0/left_enabled = false
+slot/0/left_enabled = true
 slot/0/left_type = 0
 slot/0/left_color = Color(1, 1, 1, 1)
 slot/0/left_icon = null
-slot/0/right_enabled = false
+slot/0/right_enabled = true
 slot/0/right_type = 0
 slot/0/right_color = Color(1, 1, 1, 1)
 slot/0/right_icon = null
@@ -19,6 +19,7 @@ script = ExtResource("1_jb7lq")
 
 [node name="slot" type="Label" parent="."]
 layout_mode = 2
+theme_override_font_sizes/font_size = 0
 text = ">>>"
 
 [connection signal="node_selected" from="." to="." method="_on_node_selected"]

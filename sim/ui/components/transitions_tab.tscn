@@ -1,0 +1,66 @@
+[gd_scene load_steps=2 format=3 uid="uid://5t0d7fmt1ymy"]
+
+[ext_resource type="PackedScene" uid="uid://bi5e3lecehwiu" path="res://sim/ui/components/state_label.tscn" id="1_ygf88"]
+
+[node name="Transitions" type="MarginContainer"]
+
+[node name="TransitionsPanel" type="PanelContainer" parent="."]
+layout_mode = 2
+theme_type_variation = &"BorderPanel"
+
+[node name="TransitionsMargin" type="MarginContainer" parent="TransitionsPanel"]
+layout_mode = 2
+
+[node name="TransitionsScroll" type="ScrollContainer" parent="TransitionsPanel/TransitionsMargin"]
+layout_mode = 2
+
+[node name="VTransitions" type="VBoxContainer" parent="TransitionsPanel/TransitionsMargin/TransitionsScroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_type_variation = &"VGapless"
+
+[node name="state_label" parent="TransitionsPanel/TransitionsMargin/TransitionsScroll/VTransitions" instance=ExtResource("1_ygf88")]
+layout_mode = 2
+
+[node name="state_label3" parent="TransitionsPanel/TransitionsMargin/TransitionsScroll/VTransitions" instance=ExtResource("1_ygf88")]
+layout_mode = 2
+
+[node name="state_label4" parent="TransitionsPanel/TransitionsMargin/TransitionsScroll/VTransitions" instance=ExtResource("1_ygf88")]
+layout_mode = 2
+
+[node name="state_label5" parent="TransitionsPanel/TransitionsMargin/TransitionsScroll/VTransitions" instance=ExtResource("1_ygf88")]
+layout_mode = 2
+
+[node name="state_label6" parent="TransitionsPanel/TransitionsMargin/TransitionsScroll/VTransitions" instance=ExtResource("1_ygf88")]
+layout_mode = 2
+
+[node name="state_label2" parent="TransitionsPanel/TransitionsMargin/TransitionsScroll/VTransitions" instance=ExtResource("1_ygf88")]
+layout_mode = 2
+
+[node name="state_label7" parent="TransitionsPanel/TransitionsMargin/TransitionsScroll/VTransitions" instance=ExtResource("1_ygf88")]
+layout_mode = 2
+
+[node name="state_label8" parent="TransitionsPanel/TransitionsMargin/TransitionsScroll/VTransitions" instance=ExtResource("1_ygf88")]
+layout_mode = 2
+
+[node name="state_label9" parent="TransitionsPanel/TransitionsMargin/TransitionsScroll/VTransitions" instance=ExtResource("1_ygf88")]
+layout_mode = 2
+
+[node name="state_label10" parent="TransitionsPanel/TransitionsMargin/TransitionsScroll/VTransitions" instance=ExtResource("1_ygf88")]
+layout_mode = 2
+
+[node name="state_label11" parent="TransitionsPanel/TransitionsMargin/TransitionsScroll/VTransitions" instance=ExtResource("1_ygf88")]
+layout_mode = 2
+
+[node name="state_label12" parent="TransitionsPanel/TransitionsMargin/TransitionsScroll/VTransitions" instance=ExtResource("1_ygf88")]
+layout_mode = 2
+
+[node name="state_label13" parent="TransitionsPanel/TransitionsMargin/TransitionsScroll/VTransitions" instance=ExtResource("1_ygf88")]
+layout_mode = 2
+
+[node name="state_label14" parent="TransitionsPanel/TransitionsMargin/TransitionsScroll/VTransitions" instance=ExtResource("1_ygf88")]
+layout_mode = 2
+
+[node name="state_label15" parent="TransitionsPanel/TransitionsMargin/TransitionsScroll/VTransitions" instance=ExtResource("1_ygf88")]
+layout_mode = 2

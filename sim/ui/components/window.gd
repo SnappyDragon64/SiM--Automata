@@ -14,7 +14,7 @@ func _on_resized():
 func _on_connection_request(from_node, from_port, to_node, to_port):
 	connect_node(from_node, from_port, to_node, to_port)
 
-func _on_state_deleted(deleted_id):
+func _on_state_deleted(_deleted_id):
 	current_state -= 1
 
 func _on_grid(flag):

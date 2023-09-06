@@ -1,20 +1,14 @@
-[gd_scene format=3 uid="uid://cwbxfyaebt2fb"]
+[gd_scene load_steps=3 format=3 uid="uid://cwbxfyaebt2fb"]
+
+[ext_resource type="PackedScene" uid="uid://bfcnwmxct148n" path="res://sim/ui/components/states_tab.tscn" id="1_8jt1a"]
+[ext_resource type="PackedScene" uid="uid://5t0d7fmt1ymy" path="res://sim/ui/components/transitions_tab.tscn" id="2_5375b"]
 
 [node name="tab_container" type="TabContainer"]
 size_flags_vertical = 3
 
-[node name="States" type="MarginContainer" parent="."]
+[node name="States" parent="." instance=ExtResource("1_8jt1a")]
 layout_mode = 2
-theme_type_variation = &"BorderPanel"
 
-[node name="StatesPanel" type="PanelContainer" parent="States"]
-layout_mode = 2
-theme_type_variation = &"BorderPanel"
-
-[node name="Transitions" type="MarginContainer" parent="."]
+[node name="Transitions" parent="." instance=ExtResource("2_5375b")]
 visible = false
 layout_mode = 2
-
-[node name="TransitionsPanel" type="PanelContainer" parent="Transitions"]
-layout_mode = 2
-theme_type_variation = &"BorderPanel"

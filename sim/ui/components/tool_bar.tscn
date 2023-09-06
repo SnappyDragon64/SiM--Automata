@@ -27,6 +27,7 @@ icon = ExtResource("2_llgij")
 flat = true
 
 [node name="pan_button" type="Button" parent="tool_container"]
+visible = false
 layout_mode = 2
 tooltip_text = "Pan"
 toggle_mode = true
@@ -43,6 +44,7 @@ icon = ExtResource("4_3fw7w")
 flat = true
 
 [node name="link_button" type="Button" parent="tool_container"]
+visible = false
 layout_mode = 2
 tooltip_text = "Create Transitions"
 toggle_mode = true
