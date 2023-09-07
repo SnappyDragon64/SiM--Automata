@@ -22,6 +22,8 @@ func _on_state_deleted(deleted_id):
 	if deleted_id < id:
 		id -= 1
 		update_title()
+	elif deleted_id == id:
+		queue_free()
 
 func _lock_dragging(flag):
 	set_draggable(not flag)
@@ -36,4 +38,3 @@ func _on_node_selected():
 
 func delete():
 	Signals.state_deleted.emit(id)
-	queue_free()

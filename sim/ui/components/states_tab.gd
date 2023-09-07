@@ -9,4 +9,4 @@ func _ready():
 func _on_state_created(id):
 	var state_label = state_label_preload.instantiate()
 	state_label.set_id(id)
-	add_child(state_label)
+	holder.add_child(state_label)

@@ -18,6 +18,8 @@ layout_mode = 2
 
 [node name="ScrollMargin" type="MarginContainer" parent="StatesPanel/StatesMargin/StatesScroll"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme_type_variation = &"TopDownMargin"
 
 [node name="VStates" type="VBoxContainer" parent="StatesPanel/StatesMargin/StatesScroll/ScrollMargin"]

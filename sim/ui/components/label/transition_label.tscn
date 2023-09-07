@@ -3,7 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://cerfqksci3vil" path="res://asset/element/tool/close.svg" id="1_uokd1"]
 
 [node name="transition_label" type="PanelContainer"]
-offset_right = 63.0
+custom_minimum_size = Vector2(0, 30)
+offset_right = 175.0
 offset_bottom = 32.0
 size_flags_horizontal = 3
 theme_type_variation = &"LabelPanel"
