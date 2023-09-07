@@ -1,19 +1,37 @@
 extends GraphNode
 
-enum STATE_TYPE {START, INTERMEDIATE, FINAL}
 var id = 0
-var state_type = STATE_TYPE.INTERMEDIATE
+var state_type = Globals.STATE_TYPE.INTERMEDIATE
 
 func _ready():
-	update()
 	add_to_map()
-	Signals.state_created.emit(id)
+	Signals.state_created.emit(id, self)
 	Signals.state_deleted.connect(_on_state_deleted)
 	Signals.lock_dragging.connect(_lock_dragging)
 	Signals.lock_slots.connect(_lock_slots)
+	update()
 
 func update():
-	set_title(str('S', id))
+	var text = str('S', id)
+	var offset = 6 - len(text) * 1.5
+	var v_offset = 24
+	
+	if state_type == Globals.STATE_TYPE.START:
+		text = str('→', text)
+		offset -= 14
+		v_offset += 1
+	elif state_type == Globals.STATE_TYPE.FINAL:
+		text = str('*', text)
+		offset -= 7
+	
+	set_title(text)
+	add_theme_constant_override('title_h_offset', offset)
+	add_theme_constant_override('title_offset', v_offset)
+
+func set_state_type(new_state_type):
+	state_type = new_state_type
+	Signals.state_type_updated.emit(id, state_type)
+	update()
 
 func add_to_map():
 	Globals.STATE_NODE_MAP.append(self)
@@ -36,8 +54,8 @@ func _lock_dragging(flag):
 	set_draggable(not flag)
 
 func _lock_slots(flag):
-	set_slot_enabled_left(1, not flag)
-	set_slot_enabled_right(2, not flag)
+	set_slot_enabled_left(0, not flag)
+	set_slot_enabled_right(0, not flag)
 
 func _on_node_selected():
 	if Globals.CURSOR_MODE == Globals.CURSOR_MODES.DELETE:

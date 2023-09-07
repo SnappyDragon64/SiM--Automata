@@ -6,8 +6,9 @@ signal grid(flag)
 signal dark_mode(flag)
 
 # STATE
-signal state_created(id)
+signal state_created(id, node)
 signal state_deleted(id)
+signal state_type_updated(id, state_type)
 signal lock_dragging(flag)
 signal lock_slots(flag)
 
