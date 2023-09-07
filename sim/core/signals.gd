@@ -10,3 +10,6 @@ signal state_created(id)
 signal state_deleted(id)
 signal lock_dragging(flag)
 signal lock_slots(flag)
+
+#TRANSITION
+signal transition_created(from_node, to_node)

@@ -10,3 +10,9 @@ enum CURSOR_MODES {
 }
 
 var CURSOR_MODE : CURSOR_MODES = CURSOR_MODES.SELECT
+
+var STATE_NODE_MAP = []
+var TRANSITIONS = []
+
+func get_node_by_name(node_name):
+	return STATE_NODE_MAP.filter(func(node): return node.get_name() == node_name)[0]

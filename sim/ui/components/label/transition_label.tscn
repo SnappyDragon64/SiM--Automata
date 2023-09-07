@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://cf7b6dwi2np6q"]
+[gd_scene load_steps=3 format=3 uid="uid://cf7b6dwi2np6q"]
 
+[ext_resource type="Script" path="res://sim/ui/components/label/transition_label.gd" id="1_1knea"]
 [ext_resource type="Texture2D" uid="uid://cerfqksci3vil" path="res://asset/element/tool/close.svg" id="1_uokd1"]
 
 [node name="transition_label" type="PanelContainer"]
@@ -8,6 +9,7 @@ offset_right = 175.0
 offset_bottom = 32.0
 size_flags_horizontal = 3
 theme_type_variation = &"LabelPanel"
+script = ExtResource("1_1knea")
 
 [node name="margin" type="MarginContainer" parent="."]
 layout_mode = 2
@@ -18,19 +20,18 @@ layout_mode = 2
 size_flags_vertical = 4
 theme_type_variation = &"HBoxLessSpacing"
 
-[node name="label" type="Label" parent="margin/hbox"]
+[node name="from_label" type="Label" parent="margin/hbox"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "S0 →"
 vertical_alignment = 1
 
-[node name="LineEdit" type="LineEdit" parent="margin/hbox"]
+[node name="input" type="LineEdit" parent="margin/hbox"]
 layout_mode = 2
 alignment = 2
+max_length = 1
 
-[node name="Label" type="Label" parent="margin/hbox"]
+[node name="to_label" type="Label" parent="margin/hbox"]
 layout_mode = 2
-text = " S1"
 
 [node name="delete_button" type="Button" parent="margin/hbox"]
 layout_mode = 2

@@ -1,8 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://5t0d7fmt1ymy"]
 
-[ext_resource type="PackedScene" uid="uid://cf7b6dwi2np6q" path="res://sim/ui/components/label/transition_label.tscn" id="1_nkffq"]
+[ext_resource type="Script" path="res://sim/ui/components/transitions_tab.gd" id="1_nqiql"]
 
 [node name="Transitions" type="MarginContainer"]
+script = ExtResource("1_nqiql")
 
 [node name="TransitionsPanel" type="PanelContainer" parent="."]
 layout_mode = 2
@@ -23,12 +24,3 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_type_variation = &"VGapless"
-
-[node name="state_label" parent="TransitionsPanel/TransitionsMargin/TransitionsScroll/ScrollMargin/VTransitions" instance=ExtResource("1_nkffq")]
-layout_mode = 2
-
-[node name="state_label2" parent="TransitionsPanel/TransitionsMargin/TransitionsScroll/ScrollMargin/VTransitions" instance=ExtResource("1_nkffq")]
-layout_mode = 2
-
-[node name="state_label3" parent="TransitionsPanel/TransitionsMargin/TransitionsScroll/ScrollMargin/VTransitions" instance=ExtResource("1_nkffq")]
-layout_mode = 2

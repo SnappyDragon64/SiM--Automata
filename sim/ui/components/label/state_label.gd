@@ -5,9 +5,9 @@ var id = 0
 
 func _ready():
 	Signals.state_deleted.connect(_on_state_deleted)
-	update_label()
+	update()
 	
-func update_label():
+func update():
 	label.set_text(str('S', id))
 
 func set_id(new_id):
@@ -19,10 +19,9 @@ func get_id():
 func _on_state_deleted(deleted_id):
 	if deleted_id < id:
 		id -= 1
-		update_label()
+		update()
 	elif deleted_id == id:
 		queue_free()
 
-
 func _on_delete_button_pressed():
-	Signals.node_deleted.emit(id)
+	Signals.state_deleted.emit(id)
