@@ -1,7 +1,8 @@
 extends GraphNode
 
 var id = 0
-var state_type = Globals.STATE_TYPE.INTERMEDIATE
+var is_start = false
+var is_final = false
 
 func _ready():
 	add_to_map()
@@ -9,6 +10,7 @@ func _ready():
 	Signals.state_deleted.connect(_on_state_deleted)
 	Signals.lock_dragging.connect(_lock_dragging)
 	Signals.lock_slots.connect(_lock_slots)
+	Signals.state_is_start_updated.connect(_on_state_is_start_updated)
 	update()
 
 func update():
@@ -16,11 +18,15 @@ func update():
 	var offset = 6 - len(text) * 1.5
 	var v_offset = 24
 	
-	if state_type == Globals.STATE_TYPE.START:
+	if is_start and is_final:
+		text = str('→*', text)
+		offset -= 21
+		v_offset += 1
+	elif is_start:
 		text = str('→', text)
 		offset -= 14
 		v_offset += 1
-	elif state_type == Globals.STATE_TYPE.FINAL:
+	elif is_final:
 		text = str('*', text)
 		offset -= 7
 	
@@ -28,9 +34,22 @@ func update():
 	add_theme_constant_override('title_h_offset', offset)
 	add_theme_constant_override('title_offset', v_offset)
 
-func set_state_type(new_state_type):
-	state_type = new_state_type
-	Signals.state_type_updated.emit(id, state_type)
+func set_start(flag):
+	if flag:
+		Globals.START_STATE = self
+	
+	is_start = flag
+	Signals.state_is_start_updated.emit(id, flag)
+	update()
+
+func set_final(flag):
+	if flag:
+		Globals.FINAL_STATES.append(self)
+	else:
+		Globals.FINAL_STATES.erase(self)
+	
+	is_final = flag
+	Signals.state_is_final_updated.emit(id, flag)
 	update()
 
 func add_to_map():
@@ -56,6 +75,10 @@ func _lock_dragging(flag):
 func _lock_slots(flag):
 	set_slot_enabled_left(0, not flag)
 	set_slot_enabled_right(0, not flag)
+
+func _on_state_is_start_updated(state_id, flag):
+	if state_id != id and flag:
+		set_start(false)
 
 func _on_node_selected():
 	if Globals.CURSOR_MODE == Globals.CURSOR_MODES.DELETE:

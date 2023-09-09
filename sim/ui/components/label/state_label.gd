@@ -1,14 +1,17 @@
 extends PanelContainer
 
-@onready var pre_label = $margin/hbox/label_hbox/pre_label
-@onready var label = $margin/hbox/label_hbox/label
+@onready var pre_label = $hbox/label_hbox/pre_label
+@onready var label = $hbox/label_hbox/label
+@onready var make_start_button = $hbox/button_hbox/make_start_button
 var id = 0
 var node = null
-var state_type = Globals.STATE_TYPE.INTERMEDIATE
+var is_start = false
+var is_final = false
 
 func _ready():
 	Signals.state_deleted.connect(_on_state_deleted)
-	Signals.state_type_updated.connect(_on_state_type_updated)
+	Signals.state_is_start_updated.connect(_on_state_is_start_updated)
+	Signals.state_is_final_updated.connect(_on_state_is_final_updated)
 	update()
 
 func init(state_id, state_node):
@@ -19,9 +22,11 @@ func update():
 	label.set_text(str('S', id))
 	
 	var prefix = ''
-	if state_type == Globals.STATE_TYPE.START:
+	if is_start and is_final:
+		prefix = '→*'
+	elif is_start:
 		prefix = '→'
-	elif state_type == Globals.STATE_TYPE.FINAL:
+	elif is_final:
 		prefix = '*'
 	
 	pre_label.set_text(prefix)
@@ -39,16 +44,22 @@ func _on_state_deleted(deleted_id):
 	elif deleted_id == id:
 		queue_free()
 
-func _on_state_type_updated(state_id, new_state_type):
+func _on_state_is_start_updated(state_id, flag):
 	if id == state_id:
-		state_type = new_state_type
+		is_start = flag
+		make_start_button.button_pressed = flag
+		update()
+
+func _on_state_is_final_updated(state_id, flag):
+	if id == state_id:
+		is_final = flag
 		update()
 
 func _on_delete_button_pressed():
 	Signals.state_deleted.emit(id)
 
-func _on_make_start_button_pressed():
-	node.set_state_type(Globals.STATE_TYPE.START)
+func _on_make_start_button_toggled(button_pressed):
+	node.set_start(button_pressed)
 
-func _on_make_final_button_pressed():
-	node.set_state_type(Globals.STATE_TYPE.FINAL)
+func _on_make_final_button_toggled(button_pressed):
+	node.set_final(button_pressed)

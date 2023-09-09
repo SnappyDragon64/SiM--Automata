@@ -3,6 +3,11 @@
 [ext_resource type="Script" path="res://sim/ui/components/transitions_tab.gd" id="1_nqiql"]
 
 [node name="Transitions" type="MarginContainer"]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 30.0
+offset_bottom = 30.0
+theme_type_variation = &"BorderPanel"
 script = ExtResource("1_nqiql")
 
 [node name="TransitionsPanel" type="PanelContainer" parent="."]
@@ -17,6 +22,8 @@ layout_mode = 2
 
 [node name="ScrollMargin" type="MarginContainer" parent="TransitionsPanel/TransitionsMargin/TransitionsScroll"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme_type_variation = &"TopDownMargin"
 
 [node name="VTransitions" type="VBoxContainer" parent="TransitionsPanel/TransitionsMargin/TransitionsScroll/ScrollMargin"]

@@ -5,35 +5,73 @@
 
 [node name="transition_label" type="PanelContainer"]
 custom_minimum_size = Vector2(0, 30)
-offset_right = 175.0
-offset_bottom = 32.0
+offset_right = 115.0
+offset_bottom = 30.0
 size_flags_horizontal = 3
 theme_type_variation = &"LabelPanel"
 script = ExtResource("1_1knea")
 
-[node name="margin" type="MarginContainer" parent="."]
+[node name="hbox" type="HBoxContainer" parent="."]
 layout_mode = 2
-theme_type_variation = &"ExtraMargin"
 
-[node name="hbox" type="HBoxContainer" parent="margin"]
+[node name="to_container" type="HBoxContainer" parent="hbox"]
 layout_mode = 2
-size_flags_vertical = 4
-theme_type_variation = &"HBoxLessSpacing"
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 4.0
 
-[node name="from_label" type="Label" parent="margin/hbox"]
+[node name="to_prefix" type="Label" parent="hbox/to_container"]
+layout_mode = 2
+size_flags_horizontal = 3
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="to_label" type="Label" parent="hbox/to_container"]
 layout_mode = 2
 size_flags_horizontal = 3
 vertical_alignment = 1
 
-[node name="input" type="LineEdit" parent="margin/hbox"]
+[node name="transition_container" type="HBoxContainer" parent="hbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+
+[node name="transition_label" type="Label" parent="hbox/transition_container"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "→"
+vertical_alignment = 1
+
+[node name="input" type="LineEdit" parent="hbox/transition_container"]
 layout_mode = 2
 alignment = 2
 max_length = 1
 
-[node name="to_label" type="Label" parent="margin/hbox"]
+[node name="from_container" type="HBoxContainer" parent="hbox"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 4.0
 
-[node name="delete_button" type="Button" parent="margin/hbox"]
+[node name="from_prefix" type="Label" parent="hbox/from_container"]
+layout_mode = 2
+size_flags_horizontal = 3
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="from_label" type="Label" parent="hbox/from_container"]
+layout_mode = 2
+size_flags_horizontal = 3
+vertical_alignment = 1
+
+[node name="filler" type="Control" parent="hbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="button_container" type="HBoxContainer" parent="hbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="delete_button" type="Button" parent="hbox/button_container"]
 layout_mode = 2
 icon = ExtResource("1_uokd1")
 icon_alignment = 2
