@@ -11,9 +11,8 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 connection_lines_curvature = 1.0
-zoom_min = 0.5
-zoom_max = 2.0
-show_zoom_label = true
+zoom_min = 1.0
+zoom_max = 1.0
 minimap_enabled = false
 minimap_size = Vector2(50, 50)
 minimap_opacity = 0.0
@@ -21,4 +20,3 @@ script = ExtResource("1_p7iie")
 
 [connection signal="connection_request" from="." to="." method="_on_connection_request"]
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
-[connection signal="resized" from="." to="." method="_on_resized"]

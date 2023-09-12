@@ -8,17 +8,8 @@ func _ready():
 	Signals.state_deleted.connect(_on_state_deleted)
 	Signals.grid.connect(_on_grid)
 
-func _on_resized():
-	Signals.window_size_updated.emit(get_global_rect())
-
 func _on_connection_request(from_node, from_port, to_node, to_port):
 	connect_node(from_node, from_port, to_node, to_port)
-	
-	var transition = {
-		'from': from_node,
-		'to': to_node
-	}
-	Globals.TRANSITIONS.append(transition)
 	Signals.transition_created.emit(from_node, to_node)
 
 func _on_state_deleted(_deleted_id):

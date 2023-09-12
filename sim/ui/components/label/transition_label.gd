@@ -9,6 +9,8 @@ extends PanelContainer
 @onready var from_prefix = $hbox/from_container/from_prefix
 @onready var to_prefix = $hbox/to_container/to_prefix
 
+@onready var input = $hbox/transition_container/input
+
 var is_from_start = false
 var is_from_final = false
 
@@ -66,3 +68,6 @@ func set_label_text_conditionally(label, text, flag):
 		label.set_text(text)
 	
 	return not flag
+
+func get_input():
+	return input.get_text()

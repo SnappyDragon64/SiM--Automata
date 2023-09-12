@@ -5,7 +5,6 @@ var is_start = false
 var is_final = false
 
 func _ready():
-	add_to_map()
 	Signals.state_created.emit(id, self)
 	Signals.state_deleted.connect(_on_state_deleted)
 	Signals.lock_dragging.connect(_lock_dragging)
@@ -35,25 +34,14 @@ func update():
 	add_theme_constant_override('title_offset', v_offset)
 
 func set_start(flag):
-	if flag:
-		Globals.START_STATE = self
-	
 	is_start = flag
 	Signals.state_is_start_updated.emit(id, flag)
 	update()
 
 func set_final(flag):
-	if flag:
-		Globals.FINAL_STATES.append(self)
-	else:
-		Globals.FINAL_STATES.erase(self)
-	
 	is_final = flag
 	Signals.state_is_final_updated.emit(id, flag)
 	update()
-
-func add_to_map():
-	Globals.STATE_NODE_MAP.append(self)
 
 func set_id(new_id):
 	id = new_id
@@ -66,7 +54,6 @@ func _on_state_deleted(deleted_id):
 		id -= 1
 		update()
 	elif deleted_id == id:
-		Globals.STATE_NODE_MAP.erase(self)
 		queue_free()
 
 func _lock_dragging(flag):

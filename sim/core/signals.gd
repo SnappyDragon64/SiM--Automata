@@ -1,7 +1,6 @@
 extends Node
 
 # GUI
-signal window_size_updated()
 signal grid(flag)
 signal dark_mode(flag)
 
@@ -13,5 +12,9 @@ signal state_is_final_updated(id, flag)
 signal lock_dragging(flag)
 signal lock_slots(flag)
 
-#TRANSITION
+# TRANSITION
 signal transition_created(from_node, to_node)
+
+# ENGINE
+signal retrieve_states()
+signal retrieve_transitions()

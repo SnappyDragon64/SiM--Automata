@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=23 format=3 uid="uid://cvhf4ryv7jyhx"]
+[gd_resource type="Theme" load_steps=34 format=3 uid="uid://cvhf4ryv7jyhx"]
 
 [ext_resource type="FontFile" uid="uid://bqpqp54owr5fs" path="res://asset/font/Roboto-Regular.ttf" id="1_nf555"]
 
@@ -52,6 +52,16 @@ border_width_top = 2
 border_color = Color(0, 0, 0, 0)
 expand_margin_bottom = 1.0
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c5e6t"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_abmrr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xegar"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2xslr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e150i"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ovdag"]
 bg_color = Color(0.0627451, 0.0627451, 0.0627451, 1)
 border_width_left = 2
@@ -59,7 +69,7 @@ border_color = Color(1, 1, 1, 1)
 corner_radius_top_left = 2
 corner_radius_bottom_left = 2
 
-[sub_resource type="Image" id="Image_w6fmm"]
+[sub_resource type="Image" id="Image_gf801"]
 data = {
 "data": PackedByteArray(255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 96, 255, 255, 255, 97, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 96, 255, 255, 255, 97, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 96, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 97, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 96, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 97, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 97, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 97, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 96, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 96, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 97, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 97, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 96, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 96, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 97, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 97, 255, 255, 255, 96, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 96, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 97, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 96, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 97, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 96, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 96, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 97, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 96, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 97, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 96, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 96, 255, 255, 255, 97, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 97, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 96, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 96, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 97, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 97, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 96, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 96, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 97, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 97, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 97, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 96, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 97, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 96, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 97, 255, 255, 255, 96, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 97, 255, 255, 255, 96, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0),
 "format": "RGBA8",
@@ -69,7 +79,7 @@ data = {
 }
 
 [sub_resource type="ImageTexture" id="ImageTexture_ogyjr"]
-image = SubResource("Image_w6fmm")
+image = SubResource("Image_gf801")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4denb"]
 content_margin_left = 4.0
@@ -161,6 +171,24 @@ bg_color = Color(0.0627451, 0.0627451, 0.0627451, 1)
 border_width_top = 2
 border_color = Color(0, 0, 0, 0)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pefbc"]
+bg_color = Color(0.0627451, 0.0627451, 0.0627451, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.635294, 0.635294, 0.635294, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kywbb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ihkux"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dhag6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kflg0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wrp5o"]
+
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_2wd0m"]
 color = Color(0.168627, 0.168627, 0.168627, 1)
 grow_begin = -2.0
@@ -217,6 +245,17 @@ GridContainer/constants/h_separation = 0
 GridContainer/constants/v_separation = 0
 HBoxContainer/constants/separation = 4
 HBoxLessSpacing/constants/separation = 1
+HScrollBar/icons/decrement = null
+HScrollBar/icons/decrement_highlight = null
+HScrollBar/icons/decrement_pressed = null
+HScrollBar/icons/increment = null
+HScrollBar/icons/increment_highlight = null
+HScrollBar/icons/increment_pressed = null
+HScrollBar/styles/grabber = SubResource("StyleBoxEmpty_c5e6t")
+HScrollBar/styles/grabber_highlight = SubResource("StyleBoxEmpty_abmrr")
+HScrollBar/styles/grabber_pressed = SubResource("StyleBoxEmpty_xegar")
+HScrollBar/styles/scroll = SubResource("StyleBoxEmpty_2xslr")
+HScrollBar/styles/scroll_focus = SubResource("StyleBoxEmpty_e150i")
 LabelPanel/styles/panel = SubResource("StyleBoxFlat_ovdag")
 LineEdit/colors/caret_color = Color(0.95, 0.95, 0.95, 1)
 LineEdit/colors/clear_button_color = Color(0.875, 0.875, 0.875, 1)
@@ -317,11 +356,31 @@ TabContainer/styles/tab_hovered = SubResource("StyleBoxFlat_ldvbr")
 TabContainer/styles/tab_selected = SubResource("StyleBoxFlat_1r4ub")
 TabContainer/styles/tab_unselected = SubResource("StyleBoxFlat_qfphb")
 TabContainer/styles/tabbar_background = null
+TooltipLabel/colors/font_color = Color(0.635294, 0.635294, 0.635294, 1)
+TooltipLabel/colors/font_outline_color = Color(0, 0, 0, 0)
+TooltipLabel/colors/font_shadow_color = Color(0, 0, 0, 0)
+TooltipLabel/constants/outline_size = 0
+TooltipLabel/constants/shadow_offset_x = 0
+TooltipLabel/constants/shadow_offset_y = 0
+TooltipLabel/font_sizes/font_size = 16
+TooltipLabel/fonts/font = ExtResource("1_nf555")
+TooltipPanel/styles/panel = SubResource("StyleBoxFlat_pefbc")
 TopDownMargin/constants/margin_bottom = 4
 TopDownMargin/constants/margin_left = 0
 TopDownMargin/constants/margin_right = 0
 TopDownMargin/constants/margin_top = 4
 VBoxContainer/constants/separation = 4
 VGapless/constants/separation = 2
+VScrollBar/icons/decrement = null
+VScrollBar/icons/decrement_highlight = null
+VScrollBar/icons/decrement_pressed = null
+VScrollBar/icons/increment = null
+VScrollBar/icons/increment_highlight = null
+VScrollBar/icons/increment_pressed = null
+VScrollBar/styles/grabber = SubResource("StyleBoxEmpty_kywbb")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxEmpty_ihkux")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxEmpty_dhag6")
+VScrollBar/styles/scroll = SubResource("StyleBoxEmpty_kflg0")
+VScrollBar/styles/scroll_focus = SubResource("StyleBoxEmpty_wrp5o")
 VSeparator/constants/separation = 0
 VSeparator/styles/separator = SubResource("StyleBoxLine_2wd0m")

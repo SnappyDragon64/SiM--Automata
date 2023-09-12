@@ -1,0 +1,13 @@
+<svg width="640" height="640" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="320" cy="320" r="200" fill="none" stroke="white" stroke-width="80" />
+  <circle cx="320" cy="320" r="40" fill="none" stroke="white" stroke-width="40" />
+  <polygon points="260,100 380,100 340,300 300,300" fill="white" />
+  <polygon points="260,100 380,100 340,300 300,300" fill="white" transform ="rotate(120 320 320)" />
+  <polygon points="260,100 380,100 340,300 300,300" fill="white" transform ="rotate(240 320 320)" />
+  <polygon points="260,20 380,20 420,120 220,120" fill="white" />
+  <polygon points="260,20 380,20 420,120 220,120" fill="white" transform ="rotate(60 320 320)" />
+  <polygon points="260,20 380,20 420,120 220,120" fill="white" transform ="rotate(120 320 320)" />
+  <polygon points="260,20 380,20 420,120 220,120" fill="white" transform ="rotate(180 320 320)" />
+  <polygon points="260,20 380,20 420,120 220,120" fill="white" transform ="rotate(240 320 320)" />
+  <polygon points="260,20 380,20 420,120 220,120" fill="white" transform ="rotate(300 320 320)" />
+</svg>

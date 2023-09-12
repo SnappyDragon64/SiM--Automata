@@ -7,7 +7,6 @@ offset_left = 4.0
 offset_top = 4.0
 offset_right = 30.0
 offset_bottom = 30.0
-theme_type_variation = &"BorderPanel"
 script = ExtResource("1_nqiql")
 
 [node name="TransitionsPanel" type="PanelContainer" parent="."]
@@ -19,6 +18,8 @@ layout_mode = 2
 
 [node name="TransitionsScroll" type="ScrollContainer" parent="TransitionsPanel/TransitionsMargin"]
 layout_mode = 2
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 3
 
 [node name="ScrollMargin" type="MarginContainer" parent="TransitionsPanel/TransitionsMargin/TransitionsScroll"]
 layout_mode = 2

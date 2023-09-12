@@ -13,6 +13,7 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="menu_bar" parent="." instance=ExtResource("2_uemsp")]
+visible = false
 layout_mode = 2
 
 [node name="main_container" type="GridContainer" parent="."]

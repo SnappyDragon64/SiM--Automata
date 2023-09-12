@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cinqovg23332w"]
+[gd_scene load_steps=11 format=3 uid="uid://cinqovg23332w"]
 
 [ext_resource type="Script" path="res://sim/ui/components/tool_bar.gd" id="2_8uvif"]
 [ext_resource type="ButtonGroup" uid="uid://cb36e1rvybq66" path="res://sim/ui/components/misc/cursor_button_group.tres" id="2_bowka"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bo6v2qnv4d1yn" path="res://asset/element/tool/link.svg" id="5_xnuya"]
 [ext_resource type="Texture2D" uid="uid://0a75h8i62sj" path="res://asset/element/tool/delete.svg" id="6_mjbfx"]
 [ext_resource type="Texture2D" uid="uid://brij48b26ph0j" path="res://asset/element/tool/grid.svg" id="8_6422q"]
+[ext_resource type="Texture2D" uid="uid://cfk72ttowe5w" path="res://asset/element/tool/clear.svg" id="8_rqm0t"]
 [ext_resource type="Texture2D" uid="uid://ba22tsho8puna" path="res://asset/element/tool/dark_mode.svg" id="9_fh86a"]
 
 [node name="tool_bar" type="PanelContainer"]
@@ -61,7 +62,17 @@ button_group = ExtResource("2_bowka")
 icon = ExtResource("6_mjbfx")
 flat = true
 
-[node name="VSeparator" type="VSeparator" parent="tool_container"]
+[node name="separator" type="VSeparator" parent="tool_container"]
+visible = false
+layout_mode = 2
+
+[node name="clear_button" type="Button" parent="tool_container"]
+visible = false
+layout_mode = 2
+tooltip_text = "Clear"
+icon = ExtResource("8_rqm0t")
+
+[node name="separator2" type="VSeparator" parent="tool_container"]
 layout_mode = 2
 
 [node name="grid_button" type="Button" parent="tool_container"]

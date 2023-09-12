@@ -1,11 +1,64 @@
-[gd_scene format=3 uid="uid://cu14f048pbeb"]
+[gd_scene load_steps=4 format=3 uid="uid://cu14f048pbeb"]
 
-[node name="input_container" type="TabContainer"]
+[ext_resource type="Script" path="res://sim/ui/components/input_container.gd" id="1_eo48b"]
+[ext_resource type="Texture2D" uid="uid://ft6cn1ic57da" path="res://asset/element/tool/create.svg" id="1_sgum8"]
+[ext_resource type="Texture2D" uid="uid://duh2ga288kklt" path="res://asset/element/tool/run.svg" id="2_hs27a"]
+
+[node name="input_container" type="GridContainer"]
+size_flags_horizontal = 3
 size_flags_vertical = 3
+script = ExtResource("1_eo48b")
+
+[node name="tab_container" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="tab" type="TabBar" parent="tab_container"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"TabContainer"
+tab_count = 1
+tab_0/title = "Input"
+
+[node name="button_container" type="HBoxContainer" parent="tab_container"]
+layout_mode = 2
+
+[node name="add_input_button" type="Button" parent="tab_container/button_container"]
+layout_mode = 2
+size_flags_horizontal = 10
+tooltip_text = "Add Input"
+icon = ExtResource("1_sgum8")
+
+[node name="run_button" type="Button" parent="tab_container/button_container"]
+layout_mode = 2
+size_flags_horizontal = 10
+tooltip_text = "Run"
+icon = ExtResource("2_hs27a")
 
 [node name="Input" type="MarginContainer" parent="."]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [node name="InputPanel" type="PanelContainer" parent="Input"]
 layout_mode = 2
 theme_type_variation = &"BorderPanel"
+
+[node name="InputMargin" type="MarginContainer" parent="Input/InputPanel"]
+layout_mode = 2
+
+[node name="InputScroll" type="ScrollContainer" parent="Input/InputPanel/InputMargin"]
+layout_mode = 2
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 3
+
+[node name="ScrollMargin" type="MarginContainer" parent="Input/InputPanel/InputMargin/InputScroll"]
+layout_mode = 2
+theme_type_variation = &"TopDownMargin"
+
+[node name="VInput" type="VBoxContainer" parent="Input/InputPanel/InputMargin/InputScroll/ScrollMargin"]
+layout_mode = 2
+
+[connection signal="pressed" from="tab_container/button_container/add_input_button" to="." method="_on_add_input_button_pressed"]
+[connection signal="pressed" from="tab_container/button_container/run_button" to="." method="_on_run_button_pressed"]

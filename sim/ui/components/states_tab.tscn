@@ -3,7 +3,6 @@
 [ext_resource type="Script" path="res://sim/ui/components/states_tab.gd" id="1_ajomh"]
 
 [node name="States" type="MarginContainer"]
-theme_type_variation = &"BorderPanel"
 script = ExtResource("1_ajomh")
 
 [node name="StatesPanel" type="PanelContainer" parent="."]
@@ -15,6 +14,8 @@ layout_mode = 2
 
 [node name="StatesScroll" type="ScrollContainer" parent="StatesPanel/StatesMargin"]
 layout_mode = 2
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 3
 
 [node name="ScrollMargin" type="MarginContainer" parent="StatesPanel/StatesMargin/StatesScroll"]
 layout_mode = 2
