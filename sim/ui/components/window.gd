@@ -12,7 +12,7 @@ func _on_connection_request(from_node, from_port, to_node, to_port):
 	connect_node(from_node, from_port, to_node, to_port)
 	Signals.transition_created.emit(from_node, to_node)
 
-func _on_state_deleted(_deleted_id):
+func _on_state_deleted(_deleted_id, _deleted_node):
 	current_state -= 1
 
 func _on_grid(flag):

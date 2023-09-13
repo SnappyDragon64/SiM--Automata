@@ -43,12 +43,10 @@ func set_final(flag):
 	Signals.state_is_final_updated.emit(id, flag)
 	update()
 
-func _on_state_deleted(deleted_id):
+func _on_state_deleted(deleted_id, _deleted_node):
 	if deleted_id < id:
 		id -= 1
 		update()
-	elif deleted_id == id:
-		queue_free()
 
 func _lock_dragging(flag):
 	set_draggable(not flag)
@@ -66,4 +64,6 @@ func _on_node_selected():
 		delete()
 
 func delete():
-	Signals.state_deleted.emit(id)
+	add_to_group('dead')
+	Signals.state_deleted.emit(id, self)
+	queue_free()

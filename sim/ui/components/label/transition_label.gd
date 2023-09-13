@@ -20,6 +20,7 @@ var is_to_final = false
 func _ready():
 	Signals.state_is_start_updated.connect(_on_state_is_start_updated)
 	Signals.state_is_final_updated.connect(_on_state_is_final_updated)
+	Signals.state_deleted.connect(_on_state_deleted)
 	update()
 
 func init(from, to):
@@ -45,6 +46,12 @@ func _on_state_is_final_updated(state_id, flag):
 		is_from_final = flag
 	elif state_id == to_node.id:
 		is_to_final = flag
+	
+	update()
+
+func _on_state_deleted(_deleted_id, _deleted_node):
+	if from_node.node.is_in_group('dead') or to_node.node.is_in_group('dead'):
+		queue_free()
 	
 	update()
 
@@ -77,3 +84,6 @@ func set_label_text_conditionally(label, text, flag):
 
 func get_input():
 	return input.get_text()
+
+func _on_delete_button_pressed():
+	queue_free()

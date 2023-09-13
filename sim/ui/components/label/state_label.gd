@@ -31,7 +31,7 @@ func update():
 	
 	pre_label.set_text(prefix)
 
-func _on_state_deleted(deleted_id):
+func _on_state_deleted(deleted_id, _deleted_node):
 	if deleted_id < id:
 		id -= 1
 		update()
@@ -50,7 +50,7 @@ func _on_state_is_final_updated(state_id, flag):
 		update()
 
 func _on_delete_button_pressed():
-	Signals.state_deleted.emit(id)
+	Signals.state_deleted.emit(id, self)
 
 func _on_make_start_button_toggled(button_pressed):
 	node.set_start(button_pressed)
