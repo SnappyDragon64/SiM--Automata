@@ -43,6 +43,9 @@ vertical_alignment = 1
 
 [node name="input" type="LineEdit" parent="hbox/transition_container"]
 layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_type_variation = &"CharEdit"
 alignment = 2
 max_length = 1
 
