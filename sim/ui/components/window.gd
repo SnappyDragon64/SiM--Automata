@@ -24,6 +24,6 @@ func _on_gui_input(event):
 			if Globals.CURSOR_MODE == Globals.CURSOR_MODES.CREATE:
 				var state_instance = state_preload.instantiate()
 				state_instance.set_position_offset(event.get_position())
-				state_instance.set_id(current_state)
+				state_instance.id = current_state
 				current_state += 1
 				add_child(state_instance)

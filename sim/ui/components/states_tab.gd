@@ -13,4 +13,4 @@ func _on_state_created(id, node):
 	holder.add_child(state_label)
 
 func _on_retrieve_states():
-	Globals.STATES = holder.get_children()
+	EvaluationEngine.STATES = holder.get_children()

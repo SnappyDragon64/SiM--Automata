@@ -14,7 +14,7 @@ func _on_run_button_pressed():
 	for input_label in input_labels:
 		inputs.append(input_label.get_input())
 	
-	var results = Globals.evaluate(inputs)
+	var results = EvaluationEngine.evaluate(inputs)
 	
 	var i = 0
 	for result in results:

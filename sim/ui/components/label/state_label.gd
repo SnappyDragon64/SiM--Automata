@@ -31,12 +31,6 @@ func update():
 	
 	pre_label.set_text(prefix)
 
-func set_id(new_id):
-	id = new_id
-
-func get_id():
-	return id
-
 func _on_state_deleted(deleted_id):
 	if deleted_id < id:
 		id -= 1

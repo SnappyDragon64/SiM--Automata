@@ -13,4 +13,4 @@ func _on_transition_created(from_node, to_node):
 	holder.add_child(transition_label)
 
 func _on_retrieve_transitions():
-	Globals.TRANSITIONS = holder.get_children()
+	EvaluationEngine.TRANSITIONS = holder.get_children()

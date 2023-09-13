@@ -23,21 +23,27 @@ func _ready():
 	update()
 
 func init(from, to):
-	from_node = Globals.get_node_by_name(from)
-	to_node = Globals.get_node_by_name(to)
+	from_node = EvaluationEngine.get_node_by_name(from)
+	to_node = EvaluationEngine.get_node_by_name(to)
+	
+	is_from_start = from_node.is_start
+	is_from_final = from_node.is_final
+	
+	is_to_start = to_node.is_start
+	is_to_final = to_node.is_final
 
 func _on_state_is_start_updated(state_id, flag):
-	if state_id == from_node.get_id():
+	if state_id == from_node.id:
 		is_from_start = flag
-	elif state_id == to_node.get_id():
+	elif state_id == to_node.id:
 		is_to_start = flag
 	
 	update()
 
 func _on_state_is_final_updated(state_id, flag):
-	if state_id == from_node.get_id():
+	if state_id == from_node.id:
 		is_from_final = flag
-	elif state_id == to_node.get_id():
+	elif state_id == to_node.id:
 		is_to_final = flag
 	
 	update()
@@ -60,8 +66,8 @@ func update():
 	if flag:
 		to_prefix.set_text('')
 	
-	from_label.set_text(str('S', from_node.get_id()))
-	to_label.set_text(str('S', to_node.get_id()))
+	from_label.set_text(str('S', from_node.id))
+	to_label.set_text(str('S', to_node.id))
 
 func set_label_text_conditionally(label, text, flag):
 	if flag:
