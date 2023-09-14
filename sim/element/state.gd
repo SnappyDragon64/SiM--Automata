@@ -47,6 +47,8 @@ func _on_state_deleted(deleted_id, _deleted_node):
 	if deleted_id < id:
 		id -= 1
 		update()
+	elif _deleted_node == self:
+		queue_free()
 
 func _lock_dragging(flag):
 	set_draggable(not flag)

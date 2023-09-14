@@ -50,7 +50,7 @@ func _on_state_is_final_updated(state_id, flag):
 		update()
 
 func _on_delete_button_pressed():
-	Signals.state_deleted.emit(id, self)
+	Signals.state_deleted.emit(id, node)
 
 func _on_make_start_button_toggled(button_pressed):
 	node.set_start(button_pressed)
