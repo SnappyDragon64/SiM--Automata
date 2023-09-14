@@ -33,7 +33,6 @@ window/canvas_textures/default_texture_filter=2
 
 [gui]
 
-theme/custom="res://asset/theme/default.tres"
 theme/custom_font="res://asset/font/Roboto-Regular.ttf"
 
 [rendering]

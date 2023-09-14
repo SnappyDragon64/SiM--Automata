@@ -25,11 +25,9 @@ size_flags_horizontal = 3
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_type_variation = &"BorderPanel"
 
 [node name="window" parent="window_container" instance=ExtResource("2_skvw1")]
 layout_mode = 2
-scroll_offset = Vector2(-2, 0)
 
 [node name="bottom_bar" type="PanelContainer" parent="."]
 custom_minimum_size = Vector2(0, 32)

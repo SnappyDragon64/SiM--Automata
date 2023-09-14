@@ -18,10 +18,13 @@ layout_mode = 2
 [node name="status_margin" type="MarginContainer" parent="hbox"]
 layout_mode = 2
 
-[node name="status" type="TextureRect" parent="hbox/status_margin"]
+[node name="status" type="Button" parent="hbox/status_margin"]
 layout_mode = 2
-texture = ExtResource("1_g3enm")
-expand_mode = 3
+tooltip_text = "Not Tested"
+focus_mode = 0
+theme_type_variation = &"StatusButton"
+disabled = true
+icon = ExtResource("1_g3enm")
 
 [node name="input" type="LineEdit" parent="hbox"]
 custom_minimum_size = Vector2(142, 0)

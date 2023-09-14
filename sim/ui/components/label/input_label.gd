@@ -14,6 +14,8 @@ func get_input():
 
 func set_status(flag):
 	if flag:
-		status.set_texture(status_accepted)
+		status.set_button_icon(status_accepted)
+		status.set_tooltip_text('Accepted')
 	else:
-		status.set_texture(status_not_accepted)
+		status.set_button_icon(status_not_accepted)
+		status.set_tooltip_text('Not Accepted')
