@@ -69,3 +69,8 @@ func delete():
 	add_to_group('dead')
 	Signals.state_deleted.emit(id, self)
 	queue_free()
+
+func _on_theme_changed():
+	var col = get_theme_color('slot_color')
+	set_slot_color_left(0, col)
+	set_slot_color_right(0, col)
