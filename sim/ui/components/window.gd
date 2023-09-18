@@ -7,6 +7,7 @@ func _ready():
 	get_zoom_hbox().set_visible(false)
 	Signals.state_deleted.connect(_on_state_deleted)
 	Signals.grid.connect(_on_grid)
+	Signals.redraw_transitions.connect(_on_redraw_transitions)
 
 func _on_connection_request(from_node, from_port, to_node, to_port):
 	connect_node(from_node, from_port, to_node, to_port)
@@ -17,6 +18,14 @@ func _on_state_deleted(_deleted_id, _deleted_node):
 
 func _on_grid(flag):
 	set_use_snap(flag)
+
+func _on_redraw_transitions():
+	clear_connections()
+	Signals.retrieve_transitions.emit()
+	
+	for transition in EvaluationEngine.TRANSITIONS:
+		if not transition.marked_for_deletion:
+			connect_node(transition.from_node.node.get_name(), 0, transition.to_node.node.get_name(), 0)
 
 func _on_gui_input(event):
 	if event is InputEventMouseButton:

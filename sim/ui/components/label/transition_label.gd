@@ -17,6 +17,8 @@ var is_from_final = false
 var is_to_start = false
 var is_to_final = false
 
+var marked_for_deletion = false
+
 func _ready():
 	Signals.state_is_start_updated.connect(_on_state_is_start_updated)
 	Signals.state_is_final_updated.connect(_on_state_is_final_updated)
@@ -51,7 +53,7 @@ func _on_state_is_final_updated(state_id, flag):
 
 func _on_state_deleted(_deleted_id, _deleted_node):
 	if from_node.node.is_in_group('dead') or to_node.node.is_in_group('dead'):
-		queue_free()
+		delete()
 	
 	update()
 
@@ -86,4 +88,9 @@ func get_input():
 	return input.get_text()
 
 func _on_delete_button_pressed():
+	delete()
+
+func delete():
+	marked_for_deletion = true
+	Signals.redraw_transitions.emit()
 	queue_free()

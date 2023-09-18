@@ -3,6 +3,7 @@ extends Node
 # GUI
 signal grid(flag)
 signal dark_mode(flag)
+signal redraw_transitions()
 
 # STATE
 signal state_created(id, node)
