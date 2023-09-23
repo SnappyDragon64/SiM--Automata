@@ -23,9 +23,9 @@ func update():
 	
 	var prefix = ''
 	if is_start and is_final:
-		prefix = '→*'
+		prefix = '->*'
 	elif is_start:
-		prefix = '→'
+		prefix = '->'
 	elif is_final:
 		prefix = '*'
 	

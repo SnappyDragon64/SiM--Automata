@@ -18,13 +18,11 @@ func update():
 	var v_offset = 24
 	
 	if is_start and is_final:
-		text = str('→*', text)
-		offset -= 21
-		v_offset += 1
+		text = str('->*', text)
+		offset -= 20
 	elif is_start:
-		text = str('→', text)
-		offset -= 14
-		v_offset += 1
+		text = str('->', text)
+		offset -= 13
 	elif is_final:
 		text = str('*', text)
 		offset -= 7

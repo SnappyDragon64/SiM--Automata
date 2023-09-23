@@ -60,16 +60,16 @@ func _on_state_deleted(_deleted_id, _deleted_node):
 func update():
 	var flag = true
 	
-	flag = flag && set_label_text_conditionally(from_prefix, '→*', is_from_start && is_from_final)
-	flag = flag && set_label_text_conditionally(from_prefix, '→', is_from_start)
+	flag = flag && set_label_text_conditionally(from_prefix, '->*', is_from_start && is_from_final)
+	flag = flag && set_label_text_conditionally(from_prefix, '->', is_from_start)
 	flag = flag && set_label_text_conditionally(from_prefix, '*', is_from_final)
 	
 	if flag:
 		from_prefix.set_text('')
 	flag = true
 	
-	flag = flag && set_label_text_conditionally(to_prefix, '→*', is_to_start && is_to_final)
-	flag = flag && set_label_text_conditionally(to_prefix, '→', is_to_start)
+	flag = flag && set_label_text_conditionally(to_prefix, '->*', is_to_start && is_to_final)
+	flag = flag && set_label_text_conditionally(to_prefix, '->', is_to_start)
 	flag = flag && set_label_text_conditionally(to_prefix, '*', is_to_final)
 	
 	if flag:
