@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://sim/ui/components/label/transition_label.gd" id="1_f3akt"]
 [ext_resource type="Texture2D" uid="uid://cerfqksci3vil" path="res://asset/element/tool/close.svg" id="2_wmw2s"]
 
-[node name="transition_label" type="PanelContainer"]
+[node name="transition_label" type="PanelContainer" groups=["transition_label"]]
 custom_minimum_size = Vector2(0, 30)
 offset_right = 115.0
 offset_bottom = 30.0

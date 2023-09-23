@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://sim/element/state.gd" id="1_jb7lq"]
 
-[node name="state" type="GraphNode"]
+[node name="state" type="GraphNode" groups=["state"]]
 offset_right = 62.0
 offset_bottom = 76.0
 draggable = false

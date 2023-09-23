@@ -15,7 +15,3 @@ signal lock_slots(flag)
 
 # TRANSITION
 signal transition_created(from_node, to_node)
-
-# ENGINE
-signal retrieve_states()
-signal retrieve_transitions()

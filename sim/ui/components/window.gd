@@ -21,9 +21,8 @@ func _on_grid(flag):
 
 func _on_redraw_transitions():
 	clear_connections()
-	Signals.retrieve_transitions.emit()
 	
-	for transition in EvaluationEngine.TRANSITIONS:
+	for transition in get_tree().get_nodes_in_group('transition_label'):
 		if not transition.marked_for_deletion:
 			connect_node(transition.from_node.node.get_name(), 0, transition.to_node.node.get_name(), 0)
 

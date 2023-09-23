@@ -1,20 +1,14 @@
 extends Node
 
-var STATES = []
-var TRANSITIONS = []
-
 func get_node_by_name(node_name):
-	Signals.retrieve_states.emit()
-	return STATES.filter(func(state_label): return state_label.node.get_name() == node_name)[0]
+	var state_labels = get_tree().get_nodes_in_group('state_label')
+	return state_labels.filter(func(state_label): return state_label.node.get_name() == node_name)[0]
 
 func serialize_fa():
-	Signals.retrieve_states.emit()
-	Signals.retrieve_transitions.emit()
-
 	var fa = {}
 	var start = 0
 	
-	for state in STATES:
+	for state in get_tree().get_nodes_in_group('state_label'):
 		var node = state.node
 		
 		if node.is_start:
@@ -25,7 +19,7 @@ func serialize_fa():
 			'transitions': []
 		}
 	
-	for transition in TRANSITIONS:
+	for transition in get_tree().get_nodes_in_group('transition_label'):
 		var from_id = transition.from_node.id
 		var to_id = transition.to_node.id
 		var input = transition.get_input()
