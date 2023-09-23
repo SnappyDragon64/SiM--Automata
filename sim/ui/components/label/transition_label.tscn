@@ -38,7 +38,7 @@ size_flags_stretch_ratio = 3.0
 [node name="transition_label" type="Label" parent="hbox/transition_container"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "→"
+text = "->"
 vertical_alignment = 1
 
 [node name="input" type="LineEdit" parent="hbox/transition_container"]
