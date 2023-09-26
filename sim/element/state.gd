@@ -64,7 +64,6 @@ func _on_node_selected():
 		delete()
 
 func delete():
-	add_to_group('dead')
 	Signals.state_deleted.emit(id, self)
 	queue_free()
 

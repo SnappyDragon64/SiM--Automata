@@ -38,7 +38,8 @@ func init(from, to):
 func _on_state_is_start_updated(state_id, flag):
 	if state_id == from_node.id:
 		is_from_start = flag
-	elif state_id == to_node.id:
+	
+	if state_id == to_node.id:
 		is_to_start = flag
 	
 	update()
@@ -46,16 +47,17 @@ func _on_state_is_start_updated(state_id, flag):
 func _on_state_is_final_updated(state_id, flag):
 	if state_id == from_node.id:
 		is_from_final = flag
-	elif state_id == to_node.id:
+	
+	if state_id == to_node.id:
 		is_to_final = flag
 	
 	update()
 
 func _on_state_deleted(_deleted_id, _deleted_node):
-	if from_node.node.is_in_group('dead') or to_node.node.is_in_group('dead'):
+	if not (is_instance_valid(from_node) and is_instance_valid(from_node)):
 		delete()
-	
-	update()
+	else:
+		update()
 
 func update():
 	var flag = true
