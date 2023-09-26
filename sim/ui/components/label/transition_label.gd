@@ -60,25 +60,20 @@ func _on_state_deleted(_deleted_id, _deleted_node):
 		update()
 
 func update():
+	update_label(from_prefix, from_label, is_from_start, is_from_final, from_node)
+	update_label(to_prefix, to_label, is_to_start, is_to_final, to_node)
+
+func update_label(prefix_label, label, is_start, is_final, node):
 	var flag = true
 	
-	flag = flag && set_label_text_conditionally(from_prefix, '->*', is_from_start && is_from_final)
-	flag = flag && set_label_text_conditionally(from_prefix, '->', is_from_start)
-	flag = flag && set_label_text_conditionally(from_prefix, '*', is_from_final)
+	flag = flag && set_label_text_conditionally(prefix_label, '->*', is_start && is_final)
+	flag = flag && set_label_text_conditionally(prefix_label, '->', is_start)
+	flag = flag && set_label_text_conditionally(prefix_label, '*', is_final)
 	
 	if flag:
-		from_prefix.set_text('')
-	flag = true
-	
-	flag = flag && set_label_text_conditionally(to_prefix, '->*', is_to_start && is_to_final)
-	flag = flag && set_label_text_conditionally(to_prefix, '->', is_to_start)
-	flag = flag && set_label_text_conditionally(to_prefix, '*', is_to_final)
-	
-	if flag:
-		to_prefix.set_text('')
-	
-	from_label.set_text(str('S', from_node.id))
-	to_label.set_text(str('S', to_node.id))
+		prefix_label.set_text('')
+
+	label.set_text(str('S', node.id))
 
 func set_label_text_conditionally(label, text, flag):
 	if flag:
