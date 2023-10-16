@@ -4,6 +4,9 @@ extends Node
 signal grid(flag)
 signal dark_mode(flag)
 signal redraw_transitions()
+signal add_input()
+signal run()
+signal popup(flags)
 
 # STATE
 signal state_created(id, node)

@@ -1,5 +1,25 @@
 extends Node
 
+func is_valid():
+	var n = len(get_tree().get_nodes_in_group('state_label'))
+	var flags = 7
+	
+	if n > 0:
+		flags = flags & 6
+	
+	for state in get_tree().get_nodes_in_group('state_label'):
+		if state.node.is_start:
+			flags = flags & 5
+		if state.node.is_final:
+			flags = flags & 3
+	
+	if flags > 0:
+		Signals.popup.emit(flags)
+	
+	return flags == 0
+
+
+
 func get_node_by_name(node_name):
 	var state_labels = get_tree().get_nodes_in_group('state_label')
 	return state_labels.filter(func(state_label): return state_label.node.get_name() == node_name)[0]

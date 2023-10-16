@@ -1,5 +1,8 @@
 extends PanelContainer
 
+func _ready():
+	%option_button.add_item('DFA')
+
 func reset_and_set(cursor_mode):
 	Globals.CURSOR_MODE = cursor_mode
 	Signals.lock_dragging.emit(true)

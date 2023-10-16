@@ -13,3 +13,7 @@ script = ExtResource("1_a1xt7")
 
 [node name="interface" parent="interface_layer" instance=ExtResource("2_gur35")]
 theme = ExtResource("1_fxgyp")
+
+[node name="popup" type="AcceptDialog" parent="."]
+title = "1 or more error(s)"
+initial_position = 4

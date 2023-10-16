@@ -16,10 +16,15 @@ custom_minimum_size = Vector2(0, 32)
 size_flags_horizontal = 3
 script = ExtResource("2_8uvif")
 
-[node name="tool_container" type="HBoxContainer" parent="."]
+[node name="bar_container" type="HBoxContainer" parent="."]
 layout_mode = 2
+alignment = 1
 
-[node name="select_button" type="Button" parent="tool_container"]
+[node name="tool_container" type="HBoxContainer" parent="bar_container"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="select_button" type="Button" parent="bar_container/tool_container"]
 layout_mode = 2
 tooltip_text = "Select"
 toggle_mode = true
@@ -28,7 +33,7 @@ button_group = ExtResource("2_bowka")
 icon = ExtResource("2_llgij")
 flat = true
 
-[node name="pan_button" type="Button" parent="tool_container"]
+[node name="pan_button" type="Button" parent="bar_container/tool_container"]
 visible = false
 layout_mode = 2
 tooltip_text = "Pan"
@@ -37,7 +42,7 @@ button_group = ExtResource("2_bowka")
 icon = ExtResource("3_ysfiq")
 flat = true
 
-[node name="create_button" type="Button" parent="tool_container"]
+[node name="create_button" type="Button" parent="bar_container/tool_container"]
 layout_mode = 2
 tooltip_text = "Create State"
 toggle_mode = true
@@ -45,7 +50,7 @@ button_group = ExtResource("2_bowka")
 icon = ExtResource("4_3fw7w")
 flat = true
 
-[node name="link_button" type="Button" parent="tool_container"]
+[node name="link_button" type="Button" parent="bar_container/tool_container"]
 visible = false
 layout_mode = 2
 tooltip_text = "Create Transitions"
@@ -54,7 +59,7 @@ button_group = ExtResource("2_bowka")
 icon = ExtResource("5_xnuya")
 flat = true
 
-[node name="delete_button" type="Button" parent="tool_container"]
+[node name="delete_button" type="Button" parent="bar_container/tool_container"]
 layout_mode = 2
 tooltip_text = "Delete"
 toggle_mode = true
@@ -62,20 +67,20 @@ button_group = ExtResource("2_bowka")
 icon = ExtResource("6_mjbfx")
 flat = true
 
-[node name="separator" type="VSeparator" parent="tool_container"]
+[node name="separator" type="VSeparator" parent="bar_container/tool_container"]
 visible = false
 layout_mode = 2
 
-[node name="clear_button" type="Button" parent="tool_container"]
+[node name="clear_button" type="Button" parent="bar_container/tool_container"]
 visible = false
 layout_mode = 2
 tooltip_text = "Clear"
 icon = ExtResource("8_rqm0t")
 
-[node name="separator2" type="VSeparator" parent="tool_container"]
+[node name="separator2" type="VSeparator" parent="bar_container/tool_container"]
 layout_mode = 2
 
-[node name="grid_button" type="Button" parent="tool_container"]
+[node name="grid_button" type="Button" parent="bar_container/tool_container"]
 layout_mode = 2
 tooltip_text = "Grid"
 toggle_mode = true
@@ -83,7 +88,7 @@ button_pressed = true
 icon = ExtResource("8_6422q")
 flat = true
 
-[node name="dark_mode_button" type="Button" parent="tool_container"]
+[node name="dark_mode_button" type="Button" parent="bar_container/tool_container"]
 layout_mode = 2
 tooltip_text = "Grid"
 toggle_mode = true
@@ -91,10 +96,19 @@ button_pressed = true
 icon = ExtResource("9_fh86a")
 flat = true
 
-[connection signal="pressed" from="tool_container/select_button" to="." method="_on_select_button_pressed"]
-[connection signal="pressed" from="tool_container/pan_button" to="." method="_on_pan_button_pressed"]
-[connection signal="pressed" from="tool_container/create_button" to="." method="_on_create_button_pressed"]
-[connection signal="pressed" from="tool_container/link_button" to="." method="_on_link_button_pressed"]
-[connection signal="pressed" from="tool_container/delete_button" to="." method="_on_delete_button_pressed"]
-[connection signal="toggled" from="tool_container/grid_button" to="." method="_on_grid_button_toggled"]
-[connection signal="toggled" from="tool_container/dark_mode_button" to="." method="_on_dark_mode_button_toggled"]
+[node name="option_container" type="HBoxContainer" parent="bar_container"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="option_button" type="OptionButton" parent="bar_container/option_container"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[connection signal="pressed" from="bar_container/tool_container/select_button" to="." method="_on_select_button_pressed"]
+[connection signal="pressed" from="bar_container/tool_container/pan_button" to="." method="_on_pan_button_pressed"]
+[connection signal="pressed" from="bar_container/tool_container/create_button" to="." method="_on_create_button_pressed"]
+[connection signal="pressed" from="bar_container/tool_container/link_button" to="." method="_on_link_button_pressed"]
+[connection signal="pressed" from="bar_container/tool_container/delete_button" to="." method="_on_delete_button_pressed"]
+[connection signal="toggled" from="bar_container/tool_container/grid_button" to="." method="_on_grid_button_toggled"]
+[connection signal="toggled" from="bar_container/tool_container/dark_mode_button" to="." method="_on_dark_mode_button_toggled"]

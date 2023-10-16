@@ -1,6 +1,6 @@
 extends MarginContainer
 
-@onready var holder = $StatesPanel/StatesMargin/StatesScroll/ScrollMargin/VStates
+@onready var holder = %VStates
 var state_label_preload = preload('res://sim/ui/components/label/state_label.tscn')
 
 func _ready():

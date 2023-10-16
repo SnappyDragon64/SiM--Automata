@@ -12,12 +12,26 @@ var current_sequence = []
 func _ready():
 	DisplayServer.window_set_min_size(Vector2(640, 480))
 	Signals.dark_mode.connect(_dark_mode)
+	Signals.popup.connect(_popup)
 
 func _dark_mode(flag):
 	if flag:
 		interface.set_theme(default_theme)
 	else:
 		interface.set_theme(light_theme)
+
+func _popup(flags):
+	$popup.set_visible(true)
+	var text = ''
+	
+	if flags & 1:
+		text += 'No states found.\n'
+	if flags & 2:
+		text += 'No start state found.\n'
+	if flags & 4:
+		text += 'No final state found.\n'
+	
+	$popup.dialog_text = text
 
 func _input(event):
 	if event is InputEventKey and event.is_pressed():

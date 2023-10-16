@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://hfysc3urk8qn"]
+
+[ext_resource type="Script" path="res://sim/ui/components/input_tab.gd" id="1_w8sxy"]
+
+[node name="Input" type="MarginContainer"]
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_w8sxy")
+
+[node name="InputPanel" type="PanelContainer" parent="."]
+layout_mode = 2
+theme_type_variation = &"BorderPanel"
+
+[node name="InputMargin" type="MarginContainer" parent="InputPanel"]
+layout_mode = 2
+
+[node name="InputScroll" type="ScrollContainer" parent="InputPanel/InputMargin"]
+layout_mode = 2
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 3
+
+[node name="ScrollMargin" type="MarginContainer" parent="InputPanel/InputMargin/InputScroll"]
+layout_mode = 2
+theme_type_variation = &"TopDownMargin"
+
+[node name="VInput" type="VBoxContainer" parent="InputPanel/InputMargin/InputScroll/ScrollMargin"]
+unique_name_in_owner = true
+layout_mode = 2

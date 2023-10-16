@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://bnuqnlaui04hk"]
+
+[ext_resource type="Script" path="res://sim/ui/components/test_tab.gd" id="1_ta1h7"]
+
+[node name="Test" type="MarginContainer"]
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_ta1h7")
+
+[node name="TestPanel" type="PanelContainer" parent="."]
+layout_mode = 2
+theme_type_variation = &"BorderPanel"
+
+[node name="TestMargin" type="MarginContainer" parent="TestPanel"]
+layout_mode = 2
+
+[node name="TestScroll" type="ScrollContainer" parent="TestPanel/TestMargin"]
+layout_mode = 2
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 3
+
+[node name="ScrollMargin" type="MarginContainer" parent="TestPanel/TestMargin/TestScroll"]
+layout_mode = 2
+theme_type_variation = &"TopDownMargin"
+
+[node name="VTest" type="VBoxContainer" parent="TestPanel/TestMargin/TestScroll/ScrollMargin"]
+unique_name_in_owner = true
+layout_mode = 2

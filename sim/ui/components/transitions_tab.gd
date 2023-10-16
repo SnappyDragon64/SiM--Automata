@@ -1,6 +1,6 @@
 extends MarginContainer
 
-@onready var holder = $TransitionsPanel/TransitionsMargin/TransitionsScroll/ScrollMargin/VTransitions
+@onready var holder = %VTransitions
 var transition_label_preload = preload('res://sim/ui/components/label/transition_label.tscn')
 
 func _ready():
