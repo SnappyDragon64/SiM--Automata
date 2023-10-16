@@ -18,8 +18,6 @@ func is_valid():
 	
 	return flags == 0
 
-
-
 func get_node_by_name(node_name):
 	var state_labels = get_tree().get_nodes_in_group('state_label')
 	return state_labels.filter(func(state_label): return state_label.node.get_name() == node_name)[0]
@@ -49,6 +47,31 @@ func serialize_fa():
 		})
 	
 	return [start, fa]
+
+func generate_test_strings(start, fa):
+	var keys = len(fa.keys())
+	var max_depth = keys * 2
+	var strings = []
+	
+	_generate_test_strings(start, fa, 0, max_depth, '', strings)
+	
+	return strings
+
+func _generate_test_strings(start, fa, depth, max_depth, current, strings):
+	if depth < max_depth:
+		depth += 1
+		
+		if fa[start]['is_final']:
+			strings.append(current)
+		
+		var transitions = fa[start]['transitions']
+		
+		for transition in transitions:
+			var to = transition['to']
+			var input = transition['input']
+			var new_current = current + input
+			_generate_test_strings(to, fa, depth, max_depth, new_current, strings)
+		
 
 func test(start, fa, input):
 	var current_state = start
@@ -82,3 +105,17 @@ func evaluate(inputs):
 		results.append(test(start, fa, input))
 	
 	return results
+
+func get_test_strings():
+	var serialized = serialize_fa()
+	var start = serialized[0]
+	var fa = serialized[1]
+	var strings = generate_test_strings(start, fa)
+	strings.sort_custom(sort_strings)
+	return strings
+
+func sort_strings(a, b):
+	if len(a) == len(b):
+		return a.naturalnocasecmp_to(b) < 0
+	else:
+		return len(a) < len(b)

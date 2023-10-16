@@ -64,16 +64,17 @@ func update():
 	update_label(to_prefix, to_label, is_to_start, is_to_final, to_node)
 
 func update_label(prefix_label, label, is_start, is_final, node):
-	var flag = true
-	
-	flag = flag && set_label_text_conditionally(prefix_label, '->*', is_start && is_final)
-	flag = flag && set_label_text_conditionally(prefix_label, '->', is_start)
-	flag = flag && set_label_text_conditionally(prefix_label, '*', is_final)
-	
-	if flag:
-		prefix_label.set_text('')
+	if is_instance_valid(node):
+		var flag = true
+		
+		flag = flag && set_label_text_conditionally(prefix_label, '->*', is_start && is_final)
+		flag = flag && set_label_text_conditionally(prefix_label, '->', is_start)
+		flag = flag && set_label_text_conditionally(prefix_label, '*', is_final)
+		
+		if flag:
+			prefix_label.set_text('')
 
-	label.set_text(str('S', node.id))
+		label.set_text(str('S', node.id))
 
 func set_label_text_conditionally(label, text, flag):
 	if flag:
