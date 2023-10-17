@@ -23,7 +23,7 @@ func _on_redraw_transitions():
 	clear_connections()
 	
 	for transition in get_tree().get_nodes_in_group('transition_label'):
-		if not transition.marked_for_deletion:
+		if not transition.marked_for_deletion and is_instance_valid(transition.from_node) and is_instance_valid(transition.to_node):
 			connect_node(transition.from_node.node.get_name(), 0, transition.to_node.node.get_name(), 0)
 
 func _on_gui_input(event):
