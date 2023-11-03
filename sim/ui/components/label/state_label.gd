@@ -9,6 +9,7 @@ var node_name
 func _ready():
 	Signals.update_state_label.connect(_on_update_state_label)
 	Signals.delete_state_label.connect(_on_delete_state_label)
+	Signals.start_updated.connect(_on_start_updated)
 	update()
 
 func init(state_node):
@@ -27,7 +28,7 @@ func update():
 		prefix = '*'
 	
 	pre_label.set_text(prefix)
-	Signals.update_transition_label.emit()
+	Signals.update_transition_label.emit(node_name)
 
 func _on_update_state_label(state_name):
 	if state_name == node_name:
@@ -47,6 +48,14 @@ func delete():
 
 func _on_make_start_button_toggled(button_pressed):
 	node.set_start(button_pressed)
+	
+	if button_pressed:
+		Signals.start_updated.emit(node_name)
 
 func _on_make_final_button_toggled(button_pressed):
 	node.set_final(button_pressed)
+
+func _on_start_updated(state_name):
+	if not state_name == node_name:
+		make_start_button.button_pressed = false
+		node.set_start(false)

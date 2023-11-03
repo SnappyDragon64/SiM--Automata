@@ -13,9 +13,9 @@ func _on_state_created(node):
 	holder.add_child(state_label)
 
 func _on_actually_delete_state_label(state_label):
+	Signals.delete_transition_label.emit(state_label.node_name)
 	state_label.free()
 	update_state_ids()
-	Signals.state_label_deleted.emit()
 
 func update_state_ids():
 	var id = 0
