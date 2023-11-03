@@ -22,7 +22,7 @@ size_flags_horizontal = 3
 theme_type_variation = &"TabContainer"
 tab_count = 2
 tab_0/title = "Input"
-tab_1/title = "Test"
+tab_1/title = "Generate"
 
 [node name="button_container" type="HBoxContainer" parent="headers"]
 layout_mode = 2

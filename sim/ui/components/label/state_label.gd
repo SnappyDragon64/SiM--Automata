@@ -3,54 +3,47 @@ extends PanelContainer
 @onready var pre_label = $hbox/label_hbox/pre_label
 @onready var label = $hbox/label_hbox/label
 @onready var make_start_button = $hbox/button_hbox/make_start_button
-var id = 0
 var node = null
-var is_start = false
-var is_final = false
+var node_name
 
 func _ready():
-	Signals.state_deleted.connect(_on_state_deleted)
-	Signals.state_is_start_updated.connect(_on_state_is_start_updated)
-	Signals.state_is_final_updated.connect(_on_state_is_final_updated)
+	Signals.update_state_label.connect(_on_update_state_label)
+	Signals.delete_state_label.connect(_on_delete_state_label)
 	update()
 
-func init(state_id, state_node):
-	id = state_id
+func init(state_node):
 	node = state_node
+	node_name = state_node.name
 
 func update():
-	label.set_text(str('S', id))
+	label.set_text(str('S', node.id))
 	
 	var prefix = ''
-	if is_start and is_final:
+	if node.is_start and node.is_final:
 		prefix = '->*'
-	elif is_start:
+	elif node.is_start:
 		prefix = '->'
-	elif is_final:
+	elif node.is_final:
 		prefix = '*'
 	
 	pre_label.set_text(prefix)
+	Signals.update_transition_label.emit()
 
-func _on_state_deleted(deleted_id, _deleted_node):
-	if deleted_id < id:
-		id -= 1
-		update()
-	elif deleted_id == id:
-		queue_free()
-
-func _on_state_is_start_updated(state_id, flag):
-	if id == state_id:
-		is_start = flag
-		make_start_button.button_pressed = flag
+func _on_update_state_label(state_name):
+	if state_name == node_name:
 		update()
 
-func _on_state_is_final_updated(state_id, flag):
-	if id == state_id:
-		is_final = flag
-		update()
+func _on_delete_state_label(state_name):
+	if state_name == node_name:
+		delete()
 
 func _on_delete_button_pressed():
-	Signals.state_deleted.emit(id, node)
+	delete()
+
+func delete():
+	node.queue_free()
+	await node.tree_exited
+	Signals.actually_delete_state_label.emit(self)
 
 func _on_make_start_button_toggled(button_pressed):
 	node.set_start(button_pressed)

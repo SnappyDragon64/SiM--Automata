@@ -31,6 +31,10 @@ window/size/viewport_height=720
 window/stretch/aspect="ignore"
 window/canvas_textures/default_texture_filter=2
 
+[filesystem]
+
+import/blender/enabled=false
+
 [gui]
 
 theme/custom_font="res://asset/font/Roboto-Regular.ttf"

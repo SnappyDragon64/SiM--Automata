@@ -6,7 +6,6 @@ func _ready():
 func reset_and_set(cursor_mode):
 	Globals.CURSOR_MODE = cursor_mode
 	Signals.lock_dragging.emit(true)
-	Signals.lock_slots.emit(false)
 
 func _on_select_button_pressed():
 	reset_and_set(Globals.CURSOR_MODES.SELECT)
@@ -20,7 +19,6 @@ func _on_create_button_pressed():
 
 func _on_link_button_pressed():
 	reset_and_set(Globals.CURSOR_MODES.LINK)
-	#Signals.lock_slots.emit(false)
 
 func _on_delete_button_pressed():
 	reset_and_set(Globals.CURSOR_MODES.DELETE)

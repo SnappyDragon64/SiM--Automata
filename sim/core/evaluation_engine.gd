@@ -18,7 +18,7 @@ func is_valid():
 	
 	return flags == 0
 
-func get_node_by_name(node_name):
+func get_state_label_by_name(node_name):
 	var state_labels = get_tree().get_nodes_in_group('state_label')
 	return state_labels.filter(func(state_label): return state_label.node.get_name() == node_name)[0]
 

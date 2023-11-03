@@ -9,12 +9,15 @@ signal run()
 signal popup(flags)
 
 # STATE
-signal state_created(id, node)
-signal state_deleted(id, node)
-signal state_is_start_updated(id, flag)
-signal state_is_final_updated(id, flag)
+signal state_created(node)
+signal update_state_label(state_name)
+signal delete_state_label(state_name)
+signal actually_delete_state_label(state_label)
+signal state_label_deleted()
+signal update_transition_label()
+signal delete_transition_label(transition_label)
 signal lock_dragging(flag)
-signal lock_slots(flag)
+signal update_state_ids()
 
 # TRANSITION
-signal transition_created(from_node, to_node)
+signal transition_created(from_node_label, to_node_label)
