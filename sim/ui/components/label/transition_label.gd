@@ -56,12 +56,14 @@ func _on_delete_button_pressed():
 	delete()
 
 func _on_update_transition_label(state_name: String):
-	if state_name == from_state_label.node_name or state_name == to_state_label.node_name:
-		update()
+	if is_instance_valid(from_state_label) and is_instance_valid(to_state_label):
+		if state_name == from_state_label.node_name or state_name == to_state_label.node_name:
+			update()
 
 func _on_delete_transition_label(state_name: String):
-	if state_name == from_state_label.node_name or state_name == to_state_label.node_name:
-		delete()
+	if is_instance_valid(from_state_label) and is_instance_valid(to_state_label):
+		if state_name == from_state_label.node_name or state_name == to_state_label.node_name:
+			delete()
 
 func delete():
 	Signals.actually_delete_transition_label.emit(self)
