@@ -7,7 +7,7 @@ func _ready():
 	get_zoom_hbox().set_visible(false)
 	Signals.grid.connect(_on_grid)
 	Signals.redraw_transitions.connect(_on_redraw_transitions)
-	Signals.delete_state_label.connect(_on_delete_state_label)
+	Signals.state_label_deleted.connect(_on_state_label_deleted)
 
 func _on_connection_request(from_node, from_port, to_node, to_port):
 	connect_node(from_node, from_port, to_node, to_port)
@@ -36,5 +36,5 @@ func _on_gui_input(event):
 				current_state += 1
 				add_child(state_instance)
 
-func _on_delete_state_label(_state_name):
+func _on_state_label_deleted():
 	current_state -= 1
