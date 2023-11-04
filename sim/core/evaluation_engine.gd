@@ -1,16 +1,17 @@
 extends Node
 
 func is_valid():
-	var n = len(get_tree().get_nodes_in_group('state_label'))
+	var state_labels = get_tree().get_nodes_in_group('state_label')
+	var n = len(state_labels)
 	var flags = 7
 	
 	if n > 0:
 		flags = flags & 6
 	
-	for state in get_tree().get_nodes_in_group('state_label'):
-		if state.node.is_start:
+	for state_label in state_labels:
+		if state_label.node.is_start:
 			flags = flags & 5
-		if state.node.is_final:
+		if state_label.node.is_final:
 			flags = flags & 3
 	
 	if flags > 0:
@@ -26,20 +27,20 @@ func serialize_fa():
 	var fa = {}
 	var start = 0
 	
-	for state in get_tree().get_nodes_in_group('state_label'):
-		var node = state.node
+	for state_label in get_tree().get_nodes_in_group('state_label'):
+		var state_node = state_label.node
 		
-		if node.is_start:
-			start = node.id
+		if state_node.is_start:
+			start = state_node.id
 		
-		fa[node.id] = {
-			'is_final': node.is_final,
+		fa[state_node.id] = {
+			'is_final': state_node.is_final,
 			'transitions': []
 		}
 	
 	for transition in get_tree().get_nodes_in_group('transition_label'):
-		var from_id = transition.from_node.id
-		var to_id = transition.to_node.id
+		var from_id = transition.from_state_label.node.id
+		var to_id = transition.to_state_label.node.id
 		var input = transition.get_input()
 		fa[from_id]['transitions'].append({
 			'to': to_id,
