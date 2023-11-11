@@ -121,6 +121,10 @@ func get_test_strings():
 			unique_strings.append(string)
 	
 	unique_strings.sort_custom(sort_strings)
+	
+	if len(unique_strings[0]) == 0:
+		unique_strings[0] = 'ε'
+	
 	return unique_strings
 
 func sort_strings(a, b):

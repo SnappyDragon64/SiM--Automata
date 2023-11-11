@@ -15,10 +15,7 @@ script = ExtResource("1_suldp")
 [node name="hbox" type="HBoxContainer" parent="."]
 layout_mode = 2
 
-[node name="status_margin" type="MarginContainer" parent="hbox"]
-layout_mode = 2
-
-[node name="status" type="Button" parent="hbox/status_margin"]
+[node name="status" type="Button" parent="hbox"]
 layout_mode = 2
 tooltip_text = "Not Tested"
 focus_mode = 0

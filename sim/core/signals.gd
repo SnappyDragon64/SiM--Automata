@@ -6,7 +6,7 @@ signal dark_mode(flag)
 signal redraw_transitions()
 signal add_input()
 signal run()
-signal popup(flags)
+signal popup(title, text)
 signal clear()
 
 # STATE
@@ -28,3 +28,4 @@ signal transition_created(from_node_label, to_node_label)
 # ANIMATION
 signal animation_started()
 signal animation_exited()
+signal set_state_status(state_id, status_id)

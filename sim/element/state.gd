@@ -7,6 +7,9 @@ var is_final = false
 func _ready():
 	Signals.state_created.emit( self)
 	Signals.lock_dragging.connect(_lock_dragging)
+	Signals.animation_started.connect(_on_animation_started)
+	Signals.animation_exited.connect(_on_animation_exited)
+	Signals.set_state_status.connect(_on_set_state_status)
 	update()
 
 func update():
@@ -56,3 +59,21 @@ func _on_theme_changed():
 	var col = get_theme_color('slot_color')
 	set_slot_color_left(0, col)
 	set_slot_color_right(0, col)
+
+func _on_animation_started():
+	set_selected(false)
+
+func _on_animation_exited():
+	set_status(Globals.STATE_STATUS.DEFAULT)
+
+func set_status(status_id):
+	if status_id == Globals.STATE_STATUS.DEFAULT:
+		set_theme_type_variation('GraphNode')
+	elif status_id == Globals.STATE_STATUS.VISITED:
+		set_theme_type_variation('VisitedGraphNode')
+	elif status_id == Globals.STATE_STATUS.CURRENT:
+		set_theme_type_variation('CurrentGraphNode')
+
+func _on_set_state_status(state_id, status_id):
+	if state_id == id:
+		set_status(status_id)

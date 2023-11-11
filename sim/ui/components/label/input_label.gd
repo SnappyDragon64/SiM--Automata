@@ -1,7 +1,7 @@
 extends PanelContainer
 
 @onready var input = $hbox/input
-@onready var status = $hbox/status_margin/status
+@onready var status = $hbox/status
 
 var status_accepted = preload('res://asset/element/tool/accepted.svg')
 var status_not_accepted = preload('res://asset/element/tool/not_accepted.svg')

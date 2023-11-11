@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://sim/ui/components/label/test_label.gd" id="1_yjois"]
 
-[node name="test_label" type="PanelContainer"]
+[node name="test_label" type="PanelContainer" groups=["test_label"]]
 custom_minimum_size = Vector2(0, 27)
 offset_right = 1.0
 offset_bottom = 24.0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dbrhikwpoel8s"]
+[gd_scene load_steps=9 format=3 uid="uid://dbrhikwpoel8s"]
 
 [ext_resource type="Script" path="res://sim/ui/components/animate_tab.gd" id="1_hnuwu"]
 [ext_resource type="Texture2D" uid="uid://dbiup14upiw01" path="res://asset/element/animate/start.svg" id="2_on5ss"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cthjn3oud1uix" path="res://asset/element/animate/next.svg" id="5_1rwth"]
 [ext_resource type="Texture2D" uid="uid://dakcbmlpk6hrl" path="res://asset/element/animate/pause.svg" id="5_yt15y"]
 [ext_resource type="Texture2D" uid="uid://dmisccbrk14dr" path="res://asset/element/animate/end.svg" id="6_ch31h"]
+[ext_resource type="Texture2D" uid="uid://c8eqba7ubm48v" path="res://asset/element/tool/refresh.svg" id="8_3skvm"]
 
 [node name="Animate" type="MarginContainer"]
 size_flags_horizontal = 3
@@ -34,7 +35,7 @@ vertical_alignment = 1
 
 [node name="Input" type="LineEdit" parent="AnimatePanel/AnimateMargin/VBoxContainer/InputContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(180, 27)
+custom_minimum_size = Vector2(148, 27)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
@@ -45,11 +46,20 @@ placeholder_text = "ε"
 [node name="RichTextLabel" type="RichTextLabel" parent="AnimatePanel/AnimateMargin/VBoxContainer/InputContainer"]
 unique_name_in_owner = true
 visible = false
-custom_minimum_size = Vector2(180, 27)
+custom_minimum_size = Vector2(148, 27)
 layout_mode = 2
 size_flags_horizontal = 3
 bbcode_enabled = true
 scroll_active = false
+
+[node name="Status" type="Button" parent="AnimatePanel/AnimateMargin/VBoxContainer/InputContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+tooltip_text = "Not Tested"
+focus_mode = 0
+theme_type_variation = &"StatusButton"
+disabled = true
+icon = ExtResource("8_3skvm")
 
 [node name="ButtonContainer" type="HBoxContainer" parent="AnimatePanel/AnimateMargin/VBoxContainer"]
 unique_name_in_owner = true
@@ -58,6 +68,7 @@ layout_mode = 2
 alignment = 1
 
 [node name="StartButton" type="Button" parent="AnimatePanel/AnimateMargin/VBoxContainer/ButtonContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 focus_mode = 0
 disabled = true
@@ -65,6 +76,7 @@ icon = ExtResource("2_on5ss")
 flat = true
 
 [node name="PreviousButton" type="Button" parent="AnimatePanel/AnimateMargin/VBoxContainer/ButtonContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 focus_mode = 0
 disabled = true
@@ -89,6 +101,7 @@ icon = ExtResource("5_yt15y")
 flat = true
 
 [node name="NextButton" type="Button" parent="AnimatePanel/AnimateMargin/VBoxContainer/ButtonContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 focus_mode = 0
 disabled = true
@@ -96,11 +109,14 @@ icon = ExtResource("5_1rwth")
 flat = true
 
 [node name="EndButton" type="Button" parent="AnimatePanel/AnimateMargin/VBoxContainer/ButtonContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 focus_mode = 0
 disabled = true
 icon = ExtResource("6_ch31h")
 flat = true
+
+[node name="Timer" type="Timer" parent="."]
 
 [connection signal="pressed" from="AnimatePanel/AnimateMargin/VBoxContainer/ButtonContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="AnimatePanel/AnimateMargin/VBoxContainer/ButtonContainer/PreviousButton" to="." method="_on_previous_button_pressed"]
@@ -108,3 +124,4 @@ flat = true
 [connection signal="pressed" from="AnimatePanel/AnimateMargin/VBoxContainer/ButtonContainer/PauseButton" to="." method="_on_pause_button_pressed"]
 [connection signal="pressed" from="AnimatePanel/AnimateMargin/VBoxContainer/ButtonContainer/NextButton" to="." method="_on_next_button_pressed"]
 [connection signal="pressed" from="AnimatePanel/AnimateMargin/VBoxContainer/ButtonContainer/EndButton" to="." method="_on_end_button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
