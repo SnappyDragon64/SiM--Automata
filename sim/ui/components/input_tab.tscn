@@ -21,6 +21,8 @@ vertical_scroll_mode = 3
 
 [node name="ScrollMargin" type="MarginContainer" parent="InputPanel/InputMargin/InputScroll"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme_type_variation = &"TopDownMargin"
 
 [node name="VInput" type="VBoxContainer" parent="InputPanel/InputMargin/InputScroll/ScrollMargin"]

@@ -21,6 +21,8 @@ vertical_scroll_mode = 3
 
 [node name="ScrollMargin" type="MarginContainer" parent="TestPanel/TestMargin/TestScroll"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme_type_variation = &"TopDownMargin"
 
 [node name="VTest" type="VBoxContainer" parent="TestPanel/TestMargin/TestScroll/ScrollMargin"]

@@ -14,6 +14,8 @@ extends PanelContainer
 func _ready():
 	Signals.update_transition_label.connect(_on_update_transition_label)
 	Signals.delete_transition_label.connect(_on_delete_transition_label)
+	Signals.animation_started.connect(_on_animation_started)
+	Signals.animation_exited.connect(_on_animation_exited)
 	update()
 
 func init(from, to):
@@ -67,3 +69,15 @@ func _on_delete_transition_label(state_name: String):
 
 func delete():
 	Signals.actually_delete_transition_label.emit(self)
+
+func _on_animation_started():
+	%input.set_editable(false)
+	%input.set_selecting_enabled(false)
+	%input.set_focus_mode(Control.FOCUS_NONE)
+	%delete_button.set_disabled(true)
+
+func _on_animation_exited():
+	%input.set_editable(true)
+	%input.set_selecting_enabled(true)
+	%input.set_focus_mode(Control.FOCUS_CLICK)
+	%delete_button.set_disabled(false)

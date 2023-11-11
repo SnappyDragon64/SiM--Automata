@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=3 uid="uid://cu14f048pbeb"]
+
+[ext_resource type="Script" path="res://sim/ui/components/animate_container.gd" id="1_illkj"]
+[ext_resource type="Texture2D" uid="uid://dapmg5dqc0ms" path="res://asset/element/animate/exit.svg" id="2_eyhck"]
+[ext_resource type="PackedScene" uid="uid://dbrhikwpoel8s" path="res://sim/ui/components/animate_tab.tscn" id="2_gebn4"]
+[ext_resource type="Texture2D" uid="uid://duh2ga288kklt" path="res://asset/element/tool/run.svg" id="3_k2ihc"]
+
+[node name="animate_container" type="GridContainer"]
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_illkj")
+
+[node name="headers" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="tab" type="TabBar" parent="headers"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"TabContainer"
+tab_count = 1
+tab_0/title = "Animate"
+
+[node name="button_container" type="HBoxContainer" parent="headers"]
+layout_mode = 2
+
+[node name="run_button" type="Button" parent="headers/button_container"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+tooltip_text = "Run"
+focus_mode = 0
+icon = ExtResource("3_k2ihc")
+flat = true
+
+[node name="stop_button" type="Button" parent="headers/button_container"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 10
+tooltip_text = "Exit"
+focus_mode = 0
+icon = ExtResource("2_eyhck")
+flat = true
+
+[node name="Animate" parent="." instance=ExtResource("2_gebn4")]
+layout_mode = 2
+
+[connection signal="pressed" from="headers/button_container/run_button" to="." method="_on_run_button_pressed"]
+[connection signal="pressed" from="headers/button_container/stop_button" to="." method="_on_stop_button_pressed"]

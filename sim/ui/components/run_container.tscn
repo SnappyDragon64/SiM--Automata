@@ -1,15 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://cu14f048pbeb"]
+[gd_scene load_steps=6 format=3 uid="uid://cp4o7hgyqdveq"]
 
-[ext_resource type="Script" path="res://sim/ui/components/run_container.gd" id="1_cdbky"]
-[ext_resource type="Texture2D" uid="uid://ft6cn1ic57da" path="res://asset/element/tool/create.svg" id="1_sgum8"]
-[ext_resource type="Texture2D" uid="uid://duh2ga288kklt" path="res://asset/element/tool/run.svg" id="2_hs27a"]
-[ext_resource type="PackedScene" uid="uid://hfysc3urk8qn" path="res://sim/ui/components/input_tab.tscn" id="4_gsvd0"]
-[ext_resource type="PackedScene" uid="uid://bnuqnlaui04hk" path="res://sim/ui/components/test_tab.tscn" id="5_crhh8"]
+[ext_resource type="Script" path="res://sim/ui/components/run_container.gd" id="1_qwtlq"]
+[ext_resource type="Texture2D" uid="uid://ft6cn1ic57da" path="res://asset/element/tool/create.svg" id="2_8ul1e"]
+[ext_resource type="Texture2D" uid="uid://duh2ga288kklt" path="res://asset/element/tool/run.svg" id="3_k2ihc"]
+[ext_resource type="PackedScene" uid="uid://hfysc3urk8qn" path="res://sim/ui/components/input_tab.tscn" id="4_4qf67"]
+[ext_resource type="PackedScene" uid="uid://bnuqnlaui04hk" path="res://sim/ui/components/test_tab.tscn" id="5_mhsuv"]
 
 [node name="run_container" type="GridContainer"]
 size_flags_horizontal = 3
 size_flags_vertical = 3
-script = ExtResource("1_cdbky")
+script = ExtResource("1_qwtlq")
 
 [node name="headers" type="HBoxContainer" parent="."]
 layout_mode = 2
@@ -32,18 +32,22 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 10
 tooltip_text = "Add Input"
-icon = ExtResource("1_sgum8")
+focus_mode = 0
+icon = ExtResource("2_8ul1e")
+flat = true
 
 [node name="run_button" type="Button" parent="headers/button_container"]
 layout_mode = 2
 size_flags_horizontal = 10
 tooltip_text = "Run"
-icon = ExtResource("2_hs27a")
+focus_mode = 0
+icon = ExtResource("3_k2ihc")
+flat = true
 
-[node name="Input" parent="." instance=ExtResource("4_gsvd0")]
+[node name="Input" parent="." instance=ExtResource("4_4qf67")]
 layout_mode = 2
 
-[node name="Test" parent="." instance=ExtResource("5_crhh8")]
+[node name="Test" parent="." instance=ExtResource("5_mhsuv")]
 visible = false
 layout_mode = 2
 

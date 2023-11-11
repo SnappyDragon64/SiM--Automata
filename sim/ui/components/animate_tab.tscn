@@ -1,0 +1,110 @@
+[gd_scene load_steps=8 format=3 uid="uid://dbrhikwpoel8s"]
+
+[ext_resource type="Script" path="res://sim/ui/components/animate_tab.gd" id="1_hnuwu"]
+[ext_resource type="Texture2D" uid="uid://dbiup14upiw01" path="res://asset/element/animate/start.svg" id="2_on5ss"]
+[ext_resource type="Texture2D" uid="uid://bhmg42s1os76f" path="res://asset/element/animate/previous.svg" id="3_csg01"]
+[ext_resource type="Texture2D" uid="uid://pqd8b2qd0lmn" path="res://asset/element/animate/play.svg" id="4_bsw6t"]
+[ext_resource type="Texture2D" uid="uid://cthjn3oud1uix" path="res://asset/element/animate/next.svg" id="5_1rwth"]
+[ext_resource type="Texture2D" uid="uid://dakcbmlpk6hrl" path="res://asset/element/animate/pause.svg" id="5_yt15y"]
+[ext_resource type="Texture2D" uid="uid://dmisccbrk14dr" path="res://asset/element/animate/end.svg" id="6_ch31h"]
+
+[node name="Animate" type="MarginContainer"]
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_hnuwu")
+
+[node name="AnimatePanel" type="PanelContainer" parent="."]
+layout_mode = 2
+theme_type_variation = &"BorderPanel"
+
+[node name="AnimateMargin" type="MarginContainer" parent="AnimatePanel"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AnimatePanel/AnimateMargin"]
+layout_mode = 2
+alignment = 1
+
+[node name="InputContainer" type="HBoxContainer" parent="AnimatePanel/AnimateMargin/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="AnimatePanel/AnimateMargin/VBoxContainer/InputContainer"]
+layout_mode = 2
+text = "Input:"
+vertical_alignment = 1
+
+[node name="Input" type="LineEdit" parent="AnimatePanel/AnimateMargin/VBoxContainer/InputContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(180, 27)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+focus_mode = 1
+theme_type_variation = &"CharEdit"
+placeholder_text = "ε"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="AnimatePanel/AnimateMargin/VBoxContainer/InputContainer"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(180, 27)
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+scroll_active = false
+
+[node name="ButtonContainer" type="HBoxContainer" parent="AnimatePanel/AnimateMargin/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+alignment = 1
+
+[node name="StartButton" type="Button" parent="AnimatePanel/AnimateMargin/VBoxContainer/ButtonContainer"]
+layout_mode = 2
+focus_mode = 0
+disabled = true
+icon = ExtResource("2_on5ss")
+flat = true
+
+[node name="PreviousButton" type="Button" parent="AnimatePanel/AnimateMargin/VBoxContainer/ButtonContainer"]
+layout_mode = 2
+focus_mode = 0
+disabled = true
+icon = ExtResource("3_csg01")
+flat = true
+
+[node name="PlayButton" type="Button" parent="AnimatePanel/AnimateMargin/VBoxContainer/ButtonContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+disabled = true
+icon = ExtResource("4_bsw6t")
+flat = true
+
+[node name="PauseButton" type="Button" parent="AnimatePanel/AnimateMargin/VBoxContainer/ButtonContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+focus_mode = 0
+disabled = true
+icon = ExtResource("5_yt15y")
+flat = true
+
+[node name="NextButton" type="Button" parent="AnimatePanel/AnimateMargin/VBoxContainer/ButtonContainer"]
+layout_mode = 2
+focus_mode = 0
+disabled = true
+icon = ExtResource("5_1rwth")
+flat = true
+
+[node name="EndButton" type="Button" parent="AnimatePanel/AnimateMargin/VBoxContainer/ButtonContainer"]
+layout_mode = 2
+focus_mode = 0
+disabled = true
+icon = ExtResource("6_ch31h")
+flat = true
+
+[connection signal="pressed" from="AnimatePanel/AnimateMargin/VBoxContainer/ButtonContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="AnimatePanel/AnimateMargin/VBoxContainer/ButtonContainer/PreviousButton" to="." method="_on_previous_button_pressed"]
+[connection signal="pressed" from="AnimatePanel/AnimateMargin/VBoxContainer/ButtonContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="AnimatePanel/AnimateMargin/VBoxContainer/ButtonContainer/PauseButton" to="." method="_on_pause_button_pressed"]
+[connection signal="pressed" from="AnimatePanel/AnimateMargin/VBoxContainer/ButtonContainer/NextButton" to="." method="_on_next_button_pressed"]
+[connection signal="pressed" from="AnimatePanel/AnimateMargin/VBoxContainer/ButtonContainer/EndButton" to="." method="_on_end_button_pressed"]

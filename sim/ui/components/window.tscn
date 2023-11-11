@@ -10,6 +10,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+focus_mode = 1
 connection_lines_curvature = 1.0
 zoom_min = 1.0
 zoom_max = 1.0

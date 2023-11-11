@@ -24,7 +24,6 @@ mouse_filter = 2
 columns = 3
 
 [node name="side_panel" parent="main_container" instance=ExtResource("3_xjuc2")]
-custom_minimum_size = Vector2(240, 0)
 layout_mode = 2
 
 [node name="window_container" parent="main_container" instance=ExtResource("4_0j3i2")]

@@ -44,26 +44,35 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 3.0
 
 [node name="make_start_button" type="Button" parent="hbox/button_hbox"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 8
 tooltip_text = "Make Start"
+focus_mode = 0
 toggle_mode = true
 icon = ExtResource("2_s3avy")
+flat = true
 icon_alignment = 2
 
 [node name="make_final_button" type="Button" parent="hbox/button_hbox"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 8
 tooltip_text = "Make Final"
+focus_mode = 0
 toggle_mode = true
 icon = ExtResource("3_i3ji1")
+flat = true
 icon_alignment = 2
 
 [node name="delete_button" type="Button" parent="hbox/button_hbox"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 8
 tooltip_text = "Delete"
+focus_mode = 0
 icon = ExtResource("1_aaftn")
+flat = true
 icon_alignment = 2
 
 [connection signal="toggled" from="hbox/button_hbox/make_start_button" to="." method="_on_make_start_button_toggled"]

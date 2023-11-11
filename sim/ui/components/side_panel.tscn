@@ -1,10 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://c5xrfwjl1ttak"]
+[gd_scene load_steps=4 format=3 uid="uid://c5xrfwjl1ttak"]
 
 [ext_resource type="PackedScene" uid="uid://cwbxfyaebt2fb" path="res://sim/ui/components/tab_container.tscn" id="2_1j8rs"]
-[ext_resource type="PackedScene" uid="uid://cu14f048pbeb" path="res://sim/ui/components/run_container.tscn" id="3_1nnwl"]
+[ext_resource type="PackedScene" uid="uid://cu14f048pbeb" path="res://sim/ui/components/animate_container.tscn" id="2_yv0rm"]
+[ext_resource type="PackedScene" uid="uid://cp4o7hgyqdveq" path="res://sim/ui/components/run_container.tscn" id="3_1nnwl"]
 
 [node name="side_panel" type="PanelContainer"]
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(250, 0)
+offset_right = 400.0
+offset_bottom = 67.0
 size_flags_vertical = 3
 
 [node name="margins" type="MarginContainer" parent="."]
@@ -12,9 +15,15 @@ layout_mode = 2
 
 [node name="panel_container" type="VBoxContainer" parent="margins"]
 layout_mode = 2
+theme_type_variation = &"SpacedVbox"
 
 [node name="tab_container" parent="margins/panel_container" instance=ExtResource("2_1j8rs")]
+layout_mode = 2
+size_flags_stretch_ratio = 5.0
+
+[node name="animate_container" parent="margins/panel_container" instance=ExtResource("2_yv0rm")]
 layout_mode = 2
 
 [node name="run_container" parent="margins/panel_container" instance=ExtResource("3_1nnwl")]
 layout_mode = 2
+size_flags_stretch_ratio = 4.0

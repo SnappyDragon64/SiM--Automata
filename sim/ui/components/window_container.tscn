@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://djwgi07cghjp5"]
+[gd_scene load_steps=4 format=3 uid="uid://djwgi07cghjp5"]
 
+[ext_resource type="Script" path="res://sim/ui/components/window_container.gd" id="1_5ehgp"]
 [ext_resource type="PackedScene" uid="uid://cinqovg23332w" path="res://sim/ui/components/tool_bar.tscn" id="2_0kx5f"]
 [ext_resource type="PackedScene" uid="uid://bcwvdslook4ii" path="res://sim/ui/components/window.tscn" id="2_skvw1"]
 
@@ -7,6 +8,7 @@
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
+script = ExtResource("1_5ehgp")
 
 [node name="top_divider" type="PanelContainer" parent="."]
 custom_minimum_size = Vector2(0, 4)
@@ -33,3 +35,16 @@ layout_mode = 2
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="bottom_bar"]
+layout_mode = 2
+alignment = 2
+
+[node name="VSeparator" type="VSeparator" parent="bottom_bar/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="bottom_bar/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+text = "Default Mode"

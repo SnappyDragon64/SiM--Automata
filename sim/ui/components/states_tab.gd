@@ -6,6 +6,7 @@ var state_label_preload = preload('res://sim/ui/components/label/state_label.tsc
 func _ready():
 	Signals.state_created.connect(_on_state_created)
 	Signals.actually_delete_state_label.connect(_on_actually_delete_state_label)
+	Signals.clear.connect(_on_clear)
 
 func _on_state_created(node):
 	var state_label = state_label_preload.instantiate()
@@ -28,3 +29,7 @@ func update_state_ids():
 			node.set_id(id)
 		
 		id += 1
+
+func _on_clear():
+	for state_label in holder.get_children():
+		state_label.delete()

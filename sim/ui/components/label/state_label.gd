@@ -10,6 +10,8 @@ func _ready():
 	Signals.update_state_label.connect(_on_update_state_label)
 	Signals.delete_state_label.connect(_on_delete_state_label)
 	Signals.start_updated.connect(_on_start_updated)
+	Signals.animation_started.connect(_on_animation_started)
+	Signals.animation_exited.connect(_on_animation_exited)
 	update()
 
 func init(state_node):
@@ -59,3 +61,13 @@ func _on_start_updated(state_name):
 	if not state_name == node_name:
 		make_start_button.button_pressed = false
 		node.set_start(false)
+
+func _on_animation_started():
+	%make_start_button.set_disabled(true)
+	%make_final_button.set_disabled(true)
+	%delete_button.set_disabled(true)
+
+func _on_animation_exited():
+	%make_start_button.set_disabled(false)
+	%make_final_button.set_disabled(false)
+	%delete_button.set_disabled(false)

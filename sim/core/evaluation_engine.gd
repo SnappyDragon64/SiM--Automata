@@ -76,25 +76,27 @@ func _generate_test_strings(start, fa, depth, max_depth, current, strings):
 
 func test(start, fa, input):
 	var current_state = start
+	var path = [start]
 
 	for c in input:
 		var flag = false
 		for transition in fa[current_state]['transitions']:
 			if transition['input'] == c:
-				current_state = transition['to'] 
+				current_state = transition['to']
+				path.append(current_state)
 				flag = true
 				break  
 		
 		if not flag:
-			return false  
+			return [false, path]
 		
 		if current_state not in fa:
-			return false
+			return [false, path]
 
 	if fa[current_state]['is_final']:
-		return true
+		return [true, path]
 	else:
-		return false
+		return [false, path]
 
 func evaluate(inputs):
 	var serialized = serialize_fa()
@@ -112,8 +114,14 @@ func get_test_strings():
 	var start = serialized[0]
 	var fa = serialized[1]
 	var strings = generate_test_strings(start, fa)
-	strings.sort_custom(sort_strings)
-	return strings
+	var unique_strings = []
+	
+	for string in strings:
+		if not unique_strings.has(string):
+			unique_strings.append(string)
+	
+	unique_strings.sort_custom(sort_strings)
+	return unique_strings
 
 func sort_strings(a, b):
 	if len(a) == len(b):

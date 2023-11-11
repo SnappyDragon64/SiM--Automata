@@ -25,8 +25,10 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="select_button" type="Button" parent="bar_container/tool_container"]
+unique_name_in_owner = true
 layout_mode = 2
 tooltip_text = "Select"
+focus_mode = 0
 toggle_mode = true
 button_pressed = true
 button_group = ExtResource("2_bowka")
@@ -43,8 +45,10 @@ icon = ExtResource("3_ysfiq")
 flat = true
 
 [node name="create_button" type="Button" parent="bar_container/tool_container"]
+unique_name_in_owner = true
 layout_mode = 2
 tooltip_text = "Create State"
+focus_mode = 0
 toggle_mode = true
 button_group = ExtResource("2_bowka")
 icon = ExtResource("4_3fw7w")
@@ -60,8 +64,10 @@ icon = ExtResource("5_xnuya")
 flat = true
 
 [node name="delete_button" type="Button" parent="bar_container/tool_container"]
+unique_name_in_owner = true
 layout_mode = 2
 tooltip_text = "Delete"
+focus_mode = 0
 toggle_mode = true
 button_group = ExtResource("2_bowka")
 icon = ExtResource("6_mjbfx")
@@ -71,8 +77,10 @@ flat = true
 layout_mode = 2
 
 [node name="clear_button" type="Button" parent="bar_container/tool_container"]
+unique_name_in_owner = true
 layout_mode = 2
 tooltip_text = "Clear"
+focus_mode = 0
 icon = ExtResource("8_rqm0t")
 flat = true
 
@@ -82,6 +90,7 @@ layout_mode = 2
 [node name="grid_button" type="Button" parent="bar_container/tool_container"]
 layout_mode = 2
 tooltip_text = "Grid"
+focus_mode = 0
 toggle_mode = true
 button_pressed = true
 icon = ExtResource("8_6422q")
@@ -90,6 +99,7 @@ flat = true
 [node name="dark_mode_button" type="Button" parent="bar_container/tool_container"]
 layout_mode = 2
 tooltip_text = "Grid"
+focus_mode = 0
 toggle_mode = true
 button_pressed = true
 icon = ExtResource("9_fh86a")
@@ -103,6 +113,7 @@ alignment = 2
 [node name="option_button" type="OptionButton" parent="bar_container/option_container"]
 unique_name_in_owner = true
 layout_mode = 2
+focus_mode = 0
 
 [connection signal="pressed" from="bar_container/tool_container/select_button" to="." method="_on_select_button_pressed"]
 [connection signal="pressed" from="bar_container/tool_container/pan_button" to="." method="_on_pan_button_pressed"]

@@ -7,6 +7,7 @@ signal redraw_transitions()
 signal add_input()
 signal run()
 signal popup(flags)
+signal clear()
 
 # STATE
 signal state_created(node)
@@ -23,3 +24,7 @@ signal update_state_ids()
 
 # TRANSITION
 signal transition_created(from_node_label, to_node_label)
+
+# ANIMATION
+signal animation_started()
+signal animation_exited()

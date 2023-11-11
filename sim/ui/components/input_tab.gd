@@ -6,6 +6,7 @@ var input_label_preload = preload('res://sim/ui/components/label/input_label.tsc
 func _ready():
 	Signals.add_input.connect(_on_add_input)
 	Signals.run.connect(_on_run)
+	Signals.clear.connect(_on_clear)
 
 func _on_add_input():
 	var input_label = input_label_preload.instantiate()
@@ -23,5 +24,9 @@ func _on_run():
 		
 		var i = 0
 		for result in results:
-			input_labels[i].set_status(result)
+			input_labels[i].set_status(result[0])
 			i += 1
+
+func _on_clear():
+	for label in holder.get_children():
+		label.queue_free()
