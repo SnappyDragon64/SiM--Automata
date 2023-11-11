@@ -88,17 +88,25 @@ func _on_end_button_pressed():
 
 func update():
 	var ctr = 0
+	var state_to_status_map = {}
+	
 	while ctr < path_length:
 		var state_id = path[ctr]
-		
-		if ctr < current:
-			Signals.set_state_status.emit(state_id, Globals.STATE_STATUS.VISITED)
-		elif ctr == current:
-			Signals.set_state_status.emit(state_id, Globals.STATE_STATUS.CURRENT)
-		else:
-			Signals.set_state_status.emit(state_id, Globals.STATE_STATUS.DEFAULT)
-		
+		state_to_status_map[state_id] = Globals.STATE_STATUS.DEFAULT
 		ctr += 1
+	
+	ctr = 0
+	while ctr < current:
+		var state_id = path[ctr]
+		state_to_status_map[state_id] = Globals.STATE_STATUS.VISITED
+		ctr += 1
+	
+	var current_state = path[current]
+	state_to_status_map[current_state] = Globals.STATE_STATUS.CURRENT
+	
+	for state_id in state_to_status_map.keys():
+		var state_status = state_to_status_map[state_id]
+		Signals.set_state_status.emit(state_id, state_status)
 	
 	%Status.set_tooltip_text('In Progress')
 	for button in %ButtonContainer.get_children():
@@ -116,8 +124,8 @@ func update():
 		%EndButton.set_disabled(true)
 
 func _on_timer_timeout():
+	if current + 1 == path_length - 1:
+		set_playing(false)
+	
 	current = current + 1
 	update()
-	
-	if current == path_length - 1:
-		set_playing(false)
