@@ -71,10 +71,17 @@ func _on_previous_button_pressed():
 	update()
 
 func _on_play_button_pressed():
-	set_playing(true)
+	if current < path_length - 1:
+		set_playing(true)
 
 func _on_pause_button_pressed():
 	set_playing(false)
+
+func _on_replay_button_pressed():
+	current = 0
+	update()
+	set_playing(true)
+	%ReplayButton.set_visible(false)
 
 func _on_next_button_pressed():
 	current = min(current + 1, path_length - 1)
@@ -111,8 +118,8 @@ func update():
 	%Status.set_tooltip_text('In Progress')
 	for button in %ButtonContainer.get_children():
 		button.set_disabled(false)
+	%ReplayButton.set_visible(false)
 	
-	%Status.set_tooltip_text('In Progress')
 	if path_length == 1:
 		for button in %ButtonContainer.get_children():
 			button.set_disabled(true)
@@ -120,6 +127,8 @@ func update():
 		%StartButton.set_disabled(true)
 		%PreviousButton.set_disabled(true)
 	elif current == path_length - 1:
+		%PlayButton.set_visible(false)
+		%ReplayButton.set_visible(true)
 		%NextButton.set_disabled(true)
 		%EndButton.set_disabled(true)
 

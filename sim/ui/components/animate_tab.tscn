@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dbrhikwpoel8s"]
+[gd_scene load_steps=10 format=3 uid="uid://dbrhikwpoel8s"]
 
 [ext_resource type="Script" path="res://sim/ui/components/animate_tab.gd" id="1_hnuwu"]
 [ext_resource type="Texture2D" uid="uid://dbiup14upiw01" path="res://asset/element/animate/start.svg" id="2_on5ss"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cthjn3oud1uix" path="res://asset/element/animate/next.svg" id="5_1rwth"]
 [ext_resource type="Texture2D" uid="uid://dakcbmlpk6hrl" path="res://asset/element/animate/pause.svg" id="5_yt15y"]
 [ext_resource type="Texture2D" uid="uid://dmisccbrk14dr" path="res://asset/element/animate/end.svg" id="6_ch31h"]
+[ext_resource type="Texture2D" uid="uid://cnvfnqssebwqc" path="res://asset/element/animate/replay.svg" id="7_kg4di"]
 [ext_resource type="Texture2D" uid="uid://c8eqba7ubm48v" path="res://asset/element/tool/refresh.svg" id="8_3skvm"]
 
 [node name="Animate" type="MarginContainer"]
@@ -100,6 +101,15 @@ disabled = true
 icon = ExtResource("5_yt15y")
 flat = true
 
+[node name="ReplayButton" type="Button" parent="AnimatePanel/AnimateMargin/VBoxContainer/ButtonContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+focus_mode = 0
+disabled = true
+icon = ExtResource("7_kg4di")
+flat = true
+
 [node name="NextButton" type="Button" parent="AnimatePanel/AnimateMargin/VBoxContainer/ButtonContainer"]
 unique_name_in_owner = true
 layout_mode = 2
@@ -122,6 +132,7 @@ flat = true
 [connection signal="pressed" from="AnimatePanel/AnimateMargin/VBoxContainer/ButtonContainer/PreviousButton" to="." method="_on_previous_button_pressed"]
 [connection signal="pressed" from="AnimatePanel/AnimateMargin/VBoxContainer/ButtonContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="AnimatePanel/AnimateMargin/VBoxContainer/ButtonContainer/PauseButton" to="." method="_on_pause_button_pressed"]
+[connection signal="pressed" from="AnimatePanel/AnimateMargin/VBoxContainer/ButtonContainer/ReplayButton" to="." method="_on_replay_button_pressed"]
 [connection signal="pressed" from="AnimatePanel/AnimateMargin/VBoxContainer/ButtonContainer/NextButton" to="." method="_on_next_button_pressed"]
 [connection signal="pressed" from="AnimatePanel/AnimateMargin/VBoxContainer/ButtonContainer/EndButton" to="." method="_on_end_button_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
