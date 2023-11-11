@@ -9,20 +9,34 @@ var status_default = preload('res://asset/element/tool/refresh.svg')
 var status_accepted = preload('res://asset/element/tool/accepted.svg')
 var status_not_accepted = preload('res://asset/element/tool/not_accepted.svg')
 
+enum STATUS {
+	NOT_TESTED,
+	DEFAULT,
+	ACCEPTED,
+	NOT_ACCEPTED,
+}
+
 func _ready():
 	Signals.animation_started.connect(_on_animation_started)
 	Signals.animation_exited.connect(_on_animation_exited)
 	Signals.clear.connect(_on_clear)
 
-func set_playing(flag):
+func set_playing(flag, replay=false):
 	if flag:
 		$Timer.start()
 		%PlayButton.set_visible(false)
+		%ReplayButton.set_visible(false)
 		%PauseButton.set_visible(true)
 	else:
 		$Timer.stop()
-		%PlayButton.set_visible(true)
 		%PauseButton.set_visible(false)
+		
+		if replay:
+			%ReplayButton.set_visible(true)
+			%PlayButton.set_visible(false)
+		else:
+			%ReplayButton.set_visible(false)
+			%PlayButton.set_visible(true)
 
 func _on_clear():
 	%Input.set_text('')
@@ -52,13 +66,12 @@ func _on_animation_exited():
 	%Input.set_visible(true)
 	%RichTextLabel.set_visible(false)
 	set_playing(false)
+	set_status(STATUS.NOT_TESTED)
 	
 	status = false
 	path = []
 	path_length = 0
 	current = 0
-	
-	%Status.set_tooltip_text('Not Tested')
 
 func _on_start_button_pressed():
 	current = 0
@@ -81,7 +94,6 @@ func _on_replay_button_pressed():
 	current = 0
 	update()
 	set_playing(true)
-	%ReplayButton.set_visible(false)
 
 func _on_next_button_pressed():
 	current = min(current + 1, path_length - 1)
@@ -115,10 +127,9 @@ func update():
 		var state_status = state_to_status_map[state_id]
 		Signals.set_state_status.emit(state_id, state_status)
 	
-	%Status.set_tooltip_text('In Progress')
+	set_status(STATUS.DEFAULT)
 	for button in %ButtonContainer.get_children():
 		button.set_disabled(false)
-	%ReplayButton.set_visible(false)
 	
 	if path_length == 1:
 		for button in %ButtonContainer.get_children():
@@ -131,6 +142,31 @@ func update():
 		%ReplayButton.set_visible(true)
 		%NextButton.set_disabled(true)
 		%EndButton.set_disabled(true)
+		
+		if status:
+			set_status(STATUS.ACCEPTED)
+		else:
+			set_status(STATUS.NOT_ACCEPTED)
+
+func set_status(new_status):
+	var icon
+	var text
+	
+	if new_status == STATUS.NOT_TESTED:
+		icon = status_default
+		text = 'Not Tested'
+	elif new_status == STATUS.DEFAULT:
+		icon = status_default
+		text = 'In Progress'
+	elif new_status == STATUS.ACCEPTED:
+		icon = status_accepted
+		text = 'Accepted'
+	elif new_status == STATUS.NOT_ACCEPTED:
+		icon = status_not_accepted
+		text = 'Not Accepted'
+	
+	%Status.set_button_icon(icon)
+	%Status.set_tooltip_text(text)
 
 func _on_timer_timeout():
 	if current + 1 == path_length - 1:
