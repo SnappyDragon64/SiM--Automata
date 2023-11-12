@@ -43,8 +43,20 @@ alignment = 2
 [node name="VSeparator" type="VSeparator" parent="bottom_bar/HBoxContainer"]
 layout_mode = 2
 
+[node name="Status" type="Label" parent="bottom_bar/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(270, 0)
+layout_mode = 2
+theme_type_variation = &"AltLabel"
+vertical_alignment = 2
+
+[node name="VSeparator2" type="VSeparator" parent="bottom_bar/HBoxContainer"]
+layout_mode = 2
+
 [node name="Label" type="Label" parent="bottom_bar/HBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
+theme_type_variation = &"AltLabel"
 text = "Default Mode"
+vertical_alignment = 2

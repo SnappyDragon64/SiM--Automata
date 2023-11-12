@@ -26,6 +26,8 @@ func _on_run():
 		for result in results:
 			input_labels[i].set_status(result[0])
 			i += 1
+		
+		Signals.update_simulator_status.emit(Globals.SIM_STATUS.RUN, {count=i})
 
 func _on_clear():
 	for label in holder.get_children():

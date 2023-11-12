@@ -16,3 +16,10 @@ enum STATE_STATUS {
 	VISITED,
 	CURRENT
 }
+
+enum SIM_STATUS {
+	RUN,
+	TEST,
+	ANIM_START,
+	ANIM_END,
+}

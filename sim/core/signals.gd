@@ -8,6 +8,7 @@ signal add_input()
 signal run()
 signal popup(title, text)
 signal clear()
+signal update_simulator_status(status, data)
 
 # STATE
 signal state_created(node)

@@ -42,6 +42,8 @@ func _on_clear():
 	%Input.set_text('')
 
 func _on_animation_started():
+	Signals.update_simulator_status.emit(Globals.SIM_STATUS.ANIM_START)
+	
 	for button in %ButtonContainer.get_children():
 		button.set_disabled(false)
 	
@@ -60,6 +62,8 @@ func _on_animation_started():
 	update()
 
 func _on_animation_exited():
+	Signals.update_simulator_status.emit(Globals.SIM_STATUS.ANIM_END)
+	
 	for button in %ButtonContainer.get_children():
 		button.set_disabled(true)
 	
