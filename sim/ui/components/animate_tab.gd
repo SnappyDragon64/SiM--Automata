@@ -115,9 +115,8 @@ func _on_end_button_pressed():
 	update()
 
 func update():
-	var formatted_string = '[u]' + test_string.substr(0, current) + '[/u][i]' + test_string.substr(current, path_length - current) + '[/i]'
+	var formatted_string = '[u]' + test_string.substr(0, current) + '[/u][i]' + test_string.substr(current, path_length - current + 1) + '[/i]'
 	%RichTextLabel.set_text(formatted_string)
-	
 	
 	var ctr = 0
 	var state_to_status_map = {}

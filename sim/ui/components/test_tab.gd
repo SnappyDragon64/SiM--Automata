@@ -21,7 +21,6 @@ func _populate(strings):
 		test_label.set_text(string)
 		holder.add_child(test_label)
 	
-	
 		Signals.update_simulator_status.emit(Globals.SIM_STATUS.TEST, {count=len(strings)})
 
 func _on_clear():
