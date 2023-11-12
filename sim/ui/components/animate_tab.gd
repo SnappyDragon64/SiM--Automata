@@ -4,6 +4,7 @@ var status = false
 var path = []
 var path_length = 0
 var current = 0
+var test_string
 
 var status_default = preload('res://asset/element/tool/refresh.svg')
 var status_accepted = preload('res://asset/element/tool/accepted.svg')
@@ -54,10 +55,14 @@ func _on_animation_started():
 	var result = EvaluationEngine.evaluate([input_text])[0]
 	status = result[0]
 	path = result[1]
-	path_length = len(path)
 	
-	var label_text = %Input.get_placeholder() if len(input_text) == 0 else input_text
-	%RichTextLabel.set_text(label_text)
+	if len(input_text) == 0:
+		test_string = %Input.get_placeholder()
+		path.append(path.front())
+	else:
+		test_string = input_text
+	
+	path_length = len(path)
 	
 	update()
 
@@ -110,6 +115,10 @@ func _on_end_button_pressed():
 	update()
 
 func update():
+	var formatted_string = '[u]' + test_string.substr(0, current) + '[/u][i]' + test_string.substr(current, path_length - current) + '[/i]'
+	%RichTextLabel.set_text(formatted_string)
+	
+	
 	var ctr = 0
 	var state_to_status_map = {}
 	
