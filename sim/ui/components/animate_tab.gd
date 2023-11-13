@@ -24,21 +24,22 @@ func _ready():
 	Signals.clear.connect(_on_clear)
 
 func set_playing(flag, replay=false):
-	if flag:
-		$Timer.start()
-		%PlayButton.set_visible(false)
-		%ReplayButton.set_visible(false)
-		%PauseButton.set_visible(true)
-	else:
-		$Timer.stop()
-		%PauseButton.set_visible(false)
-		
-		if replay:
-			%ReplayButton.set_visible(true)
+	if path_length > 1:
+		if flag:
+			$Timer.start()
 			%PlayButton.set_visible(false)
-		else:
 			%ReplayButton.set_visible(false)
-			%PlayButton.set_visible(true)
+			%PauseButton.set_visible(true)
+		else:
+			$Timer.stop()
+			%PauseButton.set_visible(false)
+			
+			if replay:
+				%ReplayButton.set_visible(true)
+				%PlayButton.set_visible(false)
+			else:
+				%ReplayButton.set_visible(false)
+				%PlayButton.set_visible(true)
 
 func _on_clear():
 	%Input.set_text('')
@@ -122,7 +123,7 @@ func _on_end_button_pressed():
 func update():
 	var formatted_string = '[u]' + test_string.substr(0, current) + '[/u][i]' + test_string.substr(current, len_string - current + 1) + '[/i]'
 	%RichTextLabel.set_text(formatted_string)
-	print(formatted_string)
+	
 	var ctr = 0
 	var state_to_status_map = {}
 	
@@ -151,6 +152,7 @@ func update():
 	if path_length == 1:
 		for button in %ButtonContainer.get_children():
 			button.set_disabled(true)
+		set_status(STATUS.NOT_ACCEPTED)
 	elif current == 0:
 		%StartButton.set_disabled(true)
 		%PreviousButton.set_disabled(true)
@@ -186,8 +188,9 @@ func set_status(new_status):
 	%Status.set_tooltip_text(text)
 
 func _on_timer_timeout():
-	if current + 1 == path_length - 1:
-		set_playing(false)
+	current = min(current + 1, path_length - 1)
 	
-	current = current + 1
+	if current == path_length - 1:
+		set_playing(false)
+		
 	update()
