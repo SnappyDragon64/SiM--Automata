@@ -3,21 +3,48 @@ extends Node
 func is_valid():
 	var state_labels = get_tree().get_nodes_in_group('state_label')
 	var n = len(state_labels)
-	var flags = 7
 	
-	if n > 0:
-		flags = flags & 6
+	if n == 0:
+		Signals.popup.emit('No states found.')
+		return false
+	
+	var has_start = false
+	var has_final = false
+	var are_transitions_valid = true
 	
 	for state_label in state_labels:
 		if state_label.node.is_start:
-			flags = flags & 5
+			has_start = true
 		if state_label.node.is_final:
-			flags = flags & 3
+			has_final = true
+		
+		if has_start and has_final:
+			break
 	
-	if flags > 0:
-		Signals.popup.emit(flags)
+	var transition_labels = get_tree().get_nodes_in_group('transition_label')
+	for transition_label in transition_labels:
+		if transition_label.input.get_text().is_empty():
+			are_transitions_valid = false
+			break
 	
-	return flags == 0
+	var text = ''
+	if not has_start:
+		text += 'No start state found.\n'
+	
+	if not has_final:
+		text += 'No final state found.\n'
+	
+	if not are_transitions_valid:
+		text += 'Empty transitions are not allowed.\n'
+	
+	if has_start and has_final and len(get_test_strings()) == 0:
+		text += 'No path from start state to final state.'
+	
+	if text.is_empty():
+		return true
+	else:
+		Signals.popup.emit(text)
+		return false
 
 func get_state_label_by_name(node_name):
 	var state_labels = get_tree().get_nodes_in_group('state_label')
@@ -122,8 +149,9 @@ func get_test_strings():
 	
 	unique_strings.sort_custom(sort_strings)
 	
-	if len(unique_strings[0]) == 0:
-		unique_strings[0] = 'ε'
+	if len(unique_strings) > 0:
+		if len(unique_strings[0]) == 0:
+			unique_strings[0] = 'ε'
 	
 	return unique_strings
 

@@ -4,7 +4,8 @@ var status = false
 var path = []
 var path_length = 0
 var current = 0
-var test_string
+var test_string = ''
+var len_string = 0
 
 var status_default = preload('res://asset/element/tool/refresh.svg')
 var status_accepted = preload('res://asset/element/tool/accepted.svg')
@@ -56,14 +57,16 @@ func _on_animation_started():
 	status = result[0]
 	path = result[1]
 	
-	if len(input_text) == 0:
+	if input_text.is_empty():
 		test_string = %Input.get_placeholder()
 		path.append(path.front())
 	else:
 		test_string = input_text
 	
+	len_string = len(test_string)
 	path_length = len(path)
 	
+	set_playing(true)
 	update()
 
 func _on_animation_exited():
@@ -81,6 +84,8 @@ func _on_animation_exited():
 	path = []
 	path_length = 0
 	current = 0
+	test_string = ''
+	len_string = 0
 
 func _on_start_button_pressed():
 	current = 0
@@ -115,9 +120,9 @@ func _on_end_button_pressed():
 	update()
 
 func update():
-	var formatted_string = '[u]' + test_string.substr(0, current) + '[/u][i]' + test_string.substr(current, path_length - current + 1) + '[/i]'
+	var formatted_string = '[u]' + test_string.substr(0, current) + '[/u][i]' + test_string.substr(current, len_string - current + 1) + '[/i]'
 	%RichTextLabel.set_text(formatted_string)
-	
+	print(formatted_string)
 	var ctr = 0
 	var state_to_status_map = {}
 	

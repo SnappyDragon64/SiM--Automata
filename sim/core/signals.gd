@@ -6,7 +6,7 @@ signal dark_mode(flag)
 signal redraw_transitions()
 signal add_input()
 signal run()
-signal popup(title, text)
+signal popup(text)
 signal clear()
 signal update_simulator_status(status, data)
 

@@ -51,7 +51,6 @@ custom_minimum_size = Vector2(148, 27)
 layout_mode = 2
 size_flags_horizontal = 3
 bbcode_enabled = true
-scroll_active = false
 
 [node name="Status" type="Button" parent="AnimatePanel/AnimateMargin/VBoxContainer/InputContainer"]
 unique_name_in_owner = true
