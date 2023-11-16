@@ -38,6 +38,7 @@ import/blender/enabled=false
 [gui]
 
 theme/custom_font="res://asset/font/Roboto-Regular.ttf"
+timers/tooltip_delay_sec=0.2
 
 [rendering]
 
