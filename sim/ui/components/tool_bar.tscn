@@ -98,7 +98,7 @@ flat = true
 
 [node name="dark_mode_button" type="Button" parent="bar_container/tool_container"]
 layout_mode = 2
-tooltip_text = "Grid"
+tooltip_text = "Theme"
 focus_mode = 0
 toggle_mode = true
 button_pressed = true
