@@ -1,3 +1,5 @@
+# Handles the functionality of the transitions in the sidebars
+
 extends MarginContainer
 
 

@@ -1,3 +1,5 @@
+# Used for updating the simulator status label
+
 extends GridContainer
 
 

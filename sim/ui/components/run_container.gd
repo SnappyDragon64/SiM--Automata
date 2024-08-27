@@ -1,3 +1,5 @@
+# Handles the functioning of the run button to test inputs or generate test strings
+
 extends GridContainer
 
 

@@ -1,3 +1,5 @@
+# Handles the functioning of the simulator in animation mode
+
 extends MarginContainer
 
 

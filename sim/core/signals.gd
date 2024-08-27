@@ -1,8 +1,9 @@
-extends Node
-
-
+# All global signals are defined here
 # Signals function like events and can be used for loose coupling of nodes
 # When a signal is emitted, all connected nodes receive the signal and execute some code
+
+extends Node
+
 
 # GUI-related signals
 signal grid(flag) # Tpggles grid

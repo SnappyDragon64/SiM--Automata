@@ -1,3 +1,5 @@
+# Handles the functionality of the states in the sidebars
+
 extends MarginContainer
 
 

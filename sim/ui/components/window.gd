@@ -1,3 +1,5 @@
+# Handles graph-specific functions like drawing of transitions
+
 extends GraphEdit
 
 

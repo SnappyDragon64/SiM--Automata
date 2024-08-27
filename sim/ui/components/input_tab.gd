@@ -1,3 +1,5 @@
+# Handles the functionality of the inputs in the sidebars
+
 extends MarginContainer
 
 

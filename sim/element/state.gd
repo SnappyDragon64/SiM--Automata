@@ -1,3 +1,5 @@
+# Handles the functionality of the state that can be placed to create a state transition graph
+
 extends GraphNode
 
 

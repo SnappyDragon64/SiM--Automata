@@ -1,7 +1,7 @@
+# All global values such as cursor modes and status are defined here
+
 extends Node
 
-
-# Global values
 
 # All cursor modes
 enum CURSOR_MODES {

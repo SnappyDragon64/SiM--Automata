@@ -1,3 +1,5 @@
+# Handles theme, debug mode and popups
+
 extends Control
 
 

@@ -1,3 +1,5 @@
+# Handles start and stop of the animation mode
+
 extends GridContainer
 
 
@@ -21,5 +23,5 @@ func _on_stop_button_pressed():
 		%stop_button.set_visible(false)
 		%run_button.set_visible(true)
 		
-		# Starts animation mode
+		# Stops animation mode
 		Signals.animation_exited.emit()

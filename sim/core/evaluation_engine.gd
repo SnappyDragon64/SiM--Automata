@@ -1,3 +1,7 @@
+# Contains the code for major parts of the simulator
+# Such as validation of state transition diagram,
+# testing of inputs and generation of test strings
+
 extends Node
 
 

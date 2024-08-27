@@ -1,3 +1,5 @@
+# Handles the functionality of the test strings in the sidebars
+
 extends MarginContainer
 
 

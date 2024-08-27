@@ -1,3 +1,5 @@
+# Handles the functionality of the individual inputs in the sidebars
+
 extends PanelContainer
 
 

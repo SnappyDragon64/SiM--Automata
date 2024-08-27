@@ -1,3 +1,5 @@
+# Handles the functionality of the individual test strings in the sidebars
+
 extends PanelContainer
 
 

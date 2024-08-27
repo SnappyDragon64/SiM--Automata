@@ -1,3 +1,5 @@
+# Handles the functionality of the individual transitions in the sidebars
+
 extends PanelContainer
 
 # State labels of the nodes associated with this transition label
