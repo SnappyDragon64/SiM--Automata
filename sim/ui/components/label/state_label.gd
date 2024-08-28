@@ -41,7 +41,6 @@ func update():
 		prefix = '*'
 	
 	pre_label.set_text(prefix)
-	print("yo")
 	
 	# Emits signal on update
 	Signals.update_transition_label.emit(node_name)

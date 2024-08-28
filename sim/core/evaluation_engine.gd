@@ -132,6 +132,7 @@ func _generate_test_strings(start, fa, depth, max_depth, current, strings):
 
 # Evaluates an input against the state transition diagram
 # Returns whether the input is accepted or rejected along with the path taken
+# Also used for animation
 func test(start, fa, input):
 	var current_state = start
 	var path = [start]
